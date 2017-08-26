@@ -1,5 +1,12 @@
 # Vimispirational
-A repo that documents my journey into trying to be a Vim developer as well as a place to keep my current setup.
+A repo that documents my journey into trying to be a developer who uses Vim as well as a place to keep my current setup.
+
+## Table of Contents
+- (Steps to setup on Windows)[#steps-to-setup-on-windows]
+- (ConEmu settings)[#conemu-setting]
+- (Problems I'm sure I can solve but haven't yet)[#problems-im-sure-i-can-solve-but-havent-yet]
+- (Problems I faced during install that I haven't solved)[#problems-i-faced-during-install-that-i-havent-solved]
+- (Problems I've managed to overcome)[#problems-ive-managed-to-overcome]
 
 ## Steps to setup on Windows
 1. Install ConEmu, my favourite flavour is [cmder](http://cmder.net/)
