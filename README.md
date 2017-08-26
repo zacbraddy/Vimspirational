@@ -7,6 +7,9 @@ A repo that documents my journey into trying to be a Vim developer as well as a 
 1. Install [Babun](http://babun.github.io) you can follow the steps on the site they're pretty simple.
 1. Because Babun installs a separate version of Cygwin and a different environment you'll need to setup new SSH keys even if you already had some setup on another Cygwin install (I have to admit I don't know this is the case, I'm guessing here seen as I had SSH keys setup on my box and when I installed Babun they couldn't seem to find them)
 
+## Problems I'm sure I can solve but haven't yet
+- Babun has completely taken over the look and feel of the terminal from ConEmu, I want my background and colours back or at least be able to configure them myself :(
+
 ## Problems I faced during install that I haven't solved
 ### Conemu
 - When I was setting up the Babun task I wanted to use the `%projects% ` variable that I setup in the Environment settings as the startup directory but Babun seems to have trouble understanding the variable that was setup in ConEmu. For now I've hard coded the startup directory to my projects directory and also left the variable as they're separately useful but it would be great find a way to use these together.
@@ -15,3 +18,7 @@ A repo that documents my journey into trying to be a Vim developer as well as a 
 ### Babun
 - When I installed Babun I found that I was getting an error that was suggesting that a child process couldn't be forked and that I needed to rebaseall. WTF right?! [this post](https://stackoverflow.com/questions/9300722/cygwin-error-bash-fork-retry-resource-temporarily-unavailable) helped out. I went through all the steps on the accepted answer, they all worked except for the last one which then suggested that I restart, so I did that and after that it was fine. 
 >Lesson learned: Restart after installing Babun on a windows box
+
+## Problems I've managed to overcome
+###Babun
+- Solved the problem of getting a Babun console loading up in ConEmu with (this)[http://babun.github.io/faq.html#_how_do_i_integrate_babun_with_conemu_cmder]
