@@ -10,9 +10,23 @@ A repo that documents my journey into trying to be a Vim developer as well as a 
 ## ConEmu Settings
 
 |Setting Name|Value|
-----|---
-Colour Scheme | Ubuntu
-Font Face | Consolas
+---|---
+Features > Colors | Ubuntu
+Features > Status bar > Show status bar | off
+Main > Background > Background Image | [I use this image](https://wallpaperscraft.com/image/panda_art_apofiss_night_94616_1920x1080.jpg)
+Main > Background Placement | Stretch-Fill
+Main > Background Darkening | 51
+Main > Font Face | Consolas
+Main > Quake style > Quake style slide down turned | on
+Main > Quake style > Animation time (ms) | 300
+Main > Quake style > Appear delay | 100
+Main > Quake stlye > Disappear | 100
+Main > Size & Position > Window position (pixels) | Centered
+Main > Tab bar > Tabs on Bottom | On
+Main > Update > Do automatic check on | Startup
+Main > Update > Preferred release type | Stable
+Startup > Environment | Added the line `set projects=<projects folder path>`
+Startup > Tasks | Added a SuperShells::Babun task as per the link in [problems I've solved section](#problems-ive-managed-to-overcome)
 
 ## Problems I'm sure I can solve but haven't yet
 - Babun has completely taken over the look and feel of the terminal from ConEmu, I want my background and colours back or at least be able to configure them myself :(
