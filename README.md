@@ -7,6 +7,13 @@ A repo that documents my journey into trying to be a Vim developer as well as a 
 1. Install [Babun](http://babun.github.io) you can follow the steps on the site they're pretty simple.
 1. Because Babun installs a separate version of Cygwin and a different environment you'll need to setup new SSH keys even if you already had some setup on another Cygwin install (I have to admit I don't know this is the case, I'm guessing here seen as I had SSH keys setup on my box and when I installed Babun they couldn't seem to find them)
 
+## ConEmu Settings
+
+|Setting Name|Value|
+----|---
+Colour Scheme | Ubuntu
+Font Face | Consolas
+
 ## Problems I'm sure I can solve but haven't yet
 - Babun has completely taken over the look and feel of the terminal from ConEmu, I want my background and colours back or at least be able to configure them myself :(
 
@@ -20,5 +27,5 @@ A repo that documents my journey into trying to be a Vim developer as well as a 
 >Lesson learned: Restart after installing Babun on a windows box
 
 ## Problems I've managed to overcome
-###Babun
+### Babun
 - Solved the problem of getting a Babun console loading up in ConEmu with (this)[http://babun.github.io/faq.html#_how_do_i_integrate_babun_with_conemu_cmder]
