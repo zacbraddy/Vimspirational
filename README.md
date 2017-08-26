@@ -3,7 +3,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 
 ## Table of Contents
 - [Steps to setup on Windows](#steps-to-setup-on-windows)
-- [ConEmu settings](#conemu-setting)
+- [ConEmu settings](#conemu-settings)
 - [Problems I'm sure I can solve but haven't yet](#problems-im-sure-i-can-solve-but-havent-yet)
 - [Problems I faced during install that I haven't solved](#problems-i-faced-during-install-that-i-havent-solved)
 - [Problems I've managed to overcome](#problems-ive-managed-to-overcome)
