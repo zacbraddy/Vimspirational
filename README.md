@@ -36,10 +36,9 @@ Startup > Tasks | Added a SuperShells::Babun task as per the link in [problems I
 - When I was setting up the Babun task I wanted to use the `%projects% ` variable that I setup in the Environment settings as the startup directory but Babun seems to have trouble understanding the variable that was setup in ConEmu. For now I've hard coded the startup directory to my projects directory and also left the variable as they're separately useful but it would be great find a way to use these together.
 - Babun appears to hijack the ConEmu shortcuts so I can't use the keybinding to open a new shell or switch between shells with Babun open 
 
+## Problems I've managed to overcome
 ### Babun
 - When I installed Babun I found that I was getting an error that was suggesting that a child process couldn't be forked and that I needed to rebaseall. WTF right?! [this post](https://stackoverflow.com/questions/9300722/cygwin-error-bash-fork-retry-resource-temporarily-unavailable) helped out. I went through all the steps on the accepted answer, they all worked except for the last one which then suggested that I restart, so I did that and after that it was fine. 
 >Lesson learned: Restart after installing Babun on a windows box
 
-## Problems I've managed to overcome
-### Babun
 - Solved the problem of getting a Babun console loading up in ConEmu with (this)[http://babun.github.io/faq.html#_how_do_i_integrate_babun_with_conemu_cmder]
