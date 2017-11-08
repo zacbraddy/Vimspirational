@@ -13,6 +13,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Pull down my ConEmu settings to give you a basic setup. You need to pull down [this xml file](https://github.com/zacbraddy/Vimispirational/blob/master/con_emu_settings.xml) and then import it into ConEmu through the import functionality available from the settings menu which you can pull up in ConEmu using the shortcut `Win+Alt+P`
 1. Install [Babun](http://babun.github.io) you can follow the steps on the site they're pretty simple.
 1. Because Babun installs a separate version of Cygwin and a different environment you'll need to setup new SSH keys even if you already had some setup on another Cygwin install (I have to admit I don't know this is the case, I'm guessing here seen as I had SSH keys setup on my box and when I installed Babun they couldn't seem to find them)
+1. Install clink into ConEmu. Download the zip file from [here](https://mridgers.github.io/clink/) then unzip the files directly into `%cmderinstallfolder%\cmder\vendor\conemu-maximus5\ConEmu\clink` 
 
 ## ConEmu Settings
 
