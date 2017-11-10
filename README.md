@@ -46,7 +46,9 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the st
 - Integrate git into vim
 - Install nerdtree-git-plugin to get git flags in nerd tree.
 - Get syntax highlighting for JS and possibly JSX.
+- Map nerd tree opening to a keypress
 
 ## Problems I faced during install that I haven't solved
 
 ## Problems I've managed to overcome
+
