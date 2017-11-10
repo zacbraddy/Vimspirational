@@ -40,6 +40,9 @@ Startup > Tasks | Added a Tools::Vim task I also set the hotkey for this task to
 Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the startup Project to my projects folder
 
 ## Problems I'm sure I can solve but haven't yet
+- Make it so vim doesn't make all those extra files like the swap file etc.
+- Make it so that when I use / search the highlighting goes away on escape.
+- Integrate git into vim
 
 ## Problems I faced during install that I haven't solved
 
