@@ -43,7 +43,8 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the st
 - Make it so vim doesn't make all those extra files like the swap file etc.
 - Make it so that when I use / search the highlighting goes away on escape.
 - Integrate git into vim
-
+- Install nerdtree
+- Install nerdtree-git-plugin to get git flags in nerd tree.
 ## Problems I faced during install that I haven't solved
 
 ## Problems I've managed to overcome
