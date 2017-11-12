@@ -36,9 +36,10 @@ Main > Tab bar > Tabs on Bottom | On
 Main > Update > Do automatic check on | Startup
 Main > Update > Preferred release type | Stable
 Features > In-console optionns > Use Clink in prompt | On
+Startup > Startup options > Specified named task | {Bash::Git bash}
 Startup > Environment | Added the line `set projects=<projects folder path>`
 Startup > Tasks | Added a Tools::Vim task I also set the hotkey for this task to Alt+N
-Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the startup Project to my projects folder
+Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the startup Project to my projects folder and set as Default task for new console
 
 ## Problems I'm sure I can solve but haven't yet
 - Make it so vim doesn't make all those extra files like the swap file etc.
@@ -47,6 +48,7 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the st
 - Install nerdtree-git-plugin to get git flags in nerd tree.
 - Get syntax highlighting for JS and possibly JSX.
 - Map nerd tree opening to a keypress
+- Install a fuzzy finder
 
 ## Problems I faced during install that I haven't solved
 
