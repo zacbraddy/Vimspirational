@@ -45,3 +45,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" !!! Put all the swap files and other crap in a temp folder
+" !!! GOTCHA: Don't forget to create the vimtmp directory in your ~ folder
+set backupdir=$VIM/vimfiles/vimtmp/backup//
+set directory=$VIM/vimfiles/vimtmp/swap//
+set undodir=$VIM/vimfiles/vimtmp/undo//

@@ -16,6 +16,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install clink into ConEmu. Download the zip file from [here](https://mridgers.github.io/clink/) then unzip the files directly into `%cmderinstallfolder%\cmder\vendor\conemu-maximus5\ConEmu\clink`. Clink is used to give you advanced autocomplete within the command line. Nothing really to do with vim it just makes ConEmu more powerful.
 1. Install [Pathogen](https://github.com/tpope/vim-pathogen), just follow the instructions on the README. I used the "brandnew to vim rc file the readme suggests and I also installed [sensible.vim](https://github.com/tpope/vim-sensible) as my first plugin.
 1. Install Nerdtree using pathogen by git cloning the nerdtree solution into the bundle folder created during the install of pathogen. When setting the help tags as per the installation instructions on the nerd tree github us `$VIM\bundle\nerdtree\doc\` in place of `~/.vim/bundle/nerdtree/doc/`. This makes the nerd tree reference files work correctly.
+1. Create a `vimtmp` folder in the vimfiles directory then add a folder called `backup` one called `swap` and another called `undo`. This is where the swap, undo and backup files for vim are going to be stored so that we don't pollute our `pwd` with them when working. If you don't create this directory then you will get all the swap, undo and backup files being created in the `pwd` as normal.
 
 ## ConEmu Settings
 
@@ -42,15 +43,18 @@ Startup > Tasks | Added a Tools::Vim task I also set the hotkey for this task to
 Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the startup Project to my projects folder and set as Default task for new console
 
 ## Problems I'm sure I can solve but haven't yet
-- Make it so vim doesn't make all those extra files like the swap file etc.
 - Make it so that when I use / search the highlighting goes away on escape.
 - Integrate git into vim
 - Install nerdtree-git-plugin to get git flags in nerd tree.
 - Get syntax highlighting for JS and possibly JSX.
 - Map nerd tree opening to a keypress
 - Install a fuzzy finder
+- Making it so that the backup, undo and swap directories are created automatically. Some [ideas for this can be found here](http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory)
 
 ## Problems I faced during install that I haven't solved
 
 ## Problems I've managed to overcome
 
+### Saving the swap and backup files in a different directory
+
+[This answer on SO](https://stackoverflow.com/a/1625850) explains how to save the swap and backup files to another directory and the other answers explain what exactly these files do.
