@@ -51,3 +51,7 @@ nnoremap <C-H> <C-W><C-H>
 set backupdir=$VIM/vimfiles/vimtmp/backup//
 set directory=$VIM/vimfiles/vimtmp/swap//
 set undodir=$VIM/vimfiles/vimtmp/undo//
+
+" !!! Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[

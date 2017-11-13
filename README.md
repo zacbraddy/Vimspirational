@@ -43,7 +43,6 @@ Startup > Tasks | Added a Tools::Vim task I also set the hotkey for this task to
 Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the startup Project to my projects folder and set as Default task for new console
 
 ## Problems I'm sure I can solve but haven't yet
-- Make it so that when I use / search the highlighting goes away on escape.
 - Integrate git into vim
 - Install nerdtree-git-plugin to get git flags in nerd tree.
 - Get syntax highlighting for JS and possibly JSX.
@@ -55,6 +54,10 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the st
 
 ## Problems I've managed to overcome
 
-### Saving the swap and backup files in a different directory
+#### Saving the swap and backup files in a different directory
 
 [This answer on SO](https://stackoverflow.com/a/1625850) explains how to save the swap and backup files to another directory and the other answers explain what exactly these files do.
+
+### Make it so that when I press escape the highlighting from a search goes away
+
+[This answer on SO](https://stackoverflow.com/a/1037182) explains how to map the esc key to the command `:noh` which clears the search history
