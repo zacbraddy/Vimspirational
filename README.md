@@ -58,6 +58,6 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the st
 
 [This answer on SO](https://stackoverflow.com/a/1625850) explains how to save the swap and backup files to another directory and the other answers explain what exactly these files do.
 
-### Make it so that when I press escape the highlighting from a search goes away
+#### Make it so that when I press escape the highlighting from a search goes away
 
 [This answer on SO](https://stackoverflow.com/a/1037182) explains how to map the esc key to the command `:noh` which clears the search history
