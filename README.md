@@ -49,6 +49,7 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the st
 - Map nerd tree opening to a keypress
 - Install a fuzzy finder
 - Making it so that the backup, undo and swap directories are created automatically. Some [ideas for this can be found here](http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory)
+- Make it so that vim opens up with the projects folder set as the default folder
 
 ## Problems I faced during install that I haven't solved
 
