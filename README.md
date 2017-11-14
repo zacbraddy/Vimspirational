@@ -15,8 +15,10 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. There are some setting in the ConEMU settings which point to paths on my local machine. Most notably the background image and the path to the vim exectuable for the VIM startup task you'll need to go change them for those to work.
 1. Install clink into ConEmu. Download the zip file from [here](https://mridgers.github.io/clink/) then unzip the files directly into `%cmderinstallfolder%\cmder\vendor\conemu-maximus5\ConEmu\clink`. Clink is used to give you advanced autocomplete within the command line. Nothing really to do with vim it just makes ConEmu more powerful.
 1. Install [Pathogen](https://github.com/tpope/vim-pathogen), just follow the instructions on the README. I used the "brandnew to vim rc file the readme suggests and I also installed [sensible.vim](https://github.com/tpope/vim-sensible) as my first plugin.
-1. Install Nerdtree using pathogen by git cloning the nerdtree solution into the bundle folder created during the install of pathogen. When setting the help tags as per the installation instructions on the nerd tree github us `$VIM\bundle\nerdtree\doc\` in place of `~/.vim/bundle/nerdtree/doc/`. This makes the nerd tree reference files work correctly.
+1. Install Nerdtree using pathogen by git cloning the nerdtree solution into the bundle folder created during the install of pathogen. This is as per the NERDTree [github repo](https://github.com/scrooloose/nerdtree). When setting the help tags as per the installation instructions on the nerd tree github us `$VIM\bundle\nerdtree\doc\` in place of `~/.vim/bundle/nerdtree/doc/`. This makes the nerd tree reference files work correctly.
 1. Create a `vimtmp` folder in the vimfiles directory then add a folder called `backup` one called `swap` and another called `undo`. This is where the swap, undo and backup files for vim are going to be stored so that we don't pollute our `pwd` with them when working. If you don't create this directory then you will get all the swap, undo and backup files being created in the `pwd` as normal.
+1. Install Fugitive using the install instructions on the [github repo](https://github.com/tpope/vim-fugitive).
+1. Install unimpaired using the install instruction on the [github repo](https://github.com/tpope/vim-unimpaired).
 
 ## ConEmu Settings
 
@@ -33,6 +35,8 @@ Main > Quake style > Animation time (ms) | 300
 Main > Quake style > Appear delay | 100
 Main > Quake stlye > Disappear | 100
 Main > Size & Position > Window position (pixels) | Centered
+Main > Size & Position > Window size | Maximized 
+Main > Size & Position > Alignment > Restore to active monitor | On
 Main > Tab bar > Tabs on Bottom | On
 Main > Update > Do automatic check on | Startup
 Main > Update > Preferred release type | Stable
@@ -49,6 +53,7 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the st
 - Map nerd tree opening to a keypress
 - Install a fuzzy finder
 - Making it so that the backup, undo and swap directories are created automatically. Some [ideas for this can be found here](http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory)
+- Get autocompletiong for Javascript and if possible JSX and C#
 
 ## Problems I've managed to overcome
 
