@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2017-11-14 20:22:21" build="171025">
+		<key name=".Vanilla" modified="2017-11-14 23:12:08" build="171025">
 			<value name="ColorTable00" type="dword" data="0036342e"/>
 			<value name="ColorTable01" type="dword" data="00a46534"/>
 			<value name="ColorTable02" type="dword" data="00069a4e"/>
@@ -103,10 +103,10 @@
 			<value name="Multi.SplitWidth" type="hex" data="04"/>
 			<value name="Multi.SplitHeight" type="hex" data="04"/>
 			<value name="KeyboardHooks" type="hex" data="01"/>
-			<value name="FontName" type="string" data="Consolas"/>
+			<value name="FontName" type="string" data="SauceCodePro NF"/>
 			<value name="FontName2" type="string" data="Consolas"/>
 			<value name="FontAutoSize" type="hex" data="00"/>
-			<value name="FontSize" type="ulong" data="14"/>
+			<value name="FontSize" type="ulong" data="12"/>
 			<value name="FontSizeX" type="ulong" data="0"/>
 			<value name="FontSizeX2" type="ulong" data="0"/>
 			<value name="FontSizeX3" type="ulong" data="0"/>
@@ -133,7 +133,7 @@
 			<value name="ConWnd Height" type="dword" data="0000001f"/>
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="ConWnd X" type="long" data="-3"/>
-			<value name="ConWnd Y" type="long" data="6"/>
+			<value name="ConWnd Y" type="long" data="12"/>
 			<value name="16bit Height" type="ulong" data="0"/>
 			<value name="AutoSaveSizePos" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
@@ -488,9 +488,9 @@
 			<value name="DndLKey" type="hex" data="00"/>
 			<value name="DndRKey" type="hex" data="a2"/>
 			<value name="WndDragKey" type="dword" data="00121101"/>
-			<key name="Tasks" modified="2017-11-14 20:22:21" build="171025">
+			<key name="Tasks" modified="2017-11-14 23:12:08" build="171025">
 				<value name="Count" type="long" data="11"/>
-				<key name="Task1" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task1" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{Shells::cmd}"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="cmd.exe /k &quot;%ConEmuBaseDir%\CmdInit.cmd&quot;"/>
@@ -499,7 +499,7 @@
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="Flags" type="dword" data="00000000"/>
 				</key>
-				<key name="Task2" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task2" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{Shells::cmd (Admin)}"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="cmd.exe /k &quot;%ConEmuBaseDir%\CmdInit.cmd&quot; -new_console:a"/>
@@ -508,7 +508,7 @@
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="Flags" type="dword" data="00000004"/>
 				</key>
-				<key name="Task3" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task3" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{Shells::cmd-32}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -517,7 +517,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Flags" type="dword" data="00000004"/>
 				</key>
-				<key name="Task4" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task4" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{Shells::cmd 64/32}"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
@@ -527,7 +527,7 @@
 					<value name="Count" type="long" data="2"/>
 					<value name="Flags" type="dword" data="00000004"/>
 				</key>
-				<key name="Task5" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task5" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{Shells::PowerShell}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -536,7 +536,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task6" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task6" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{Shells::PowerShell (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -546,7 +546,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd2" type="string" data="%CMDER_ROOT%vendor\git-for-windows\usr\bin\mintty.exe /bin/bash -l -new_console:d:%userProfile%"/>
 				</key>
-				<key name="Task7" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task7" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{Helper::Show ANSI colors}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -555,7 +555,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data="cmd.exe /k type &quot;%ConEmuBaseDir%\Addons\AnsiColors16t.ans&quot; -cur_console:n"/>
 				</key>
-				<key name="Task8" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task8" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{Tools::Chocolatey (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -564,7 +564,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task9" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task9" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{SuperShells::Babun}"/>
 					<value name="Flags" type="dword" data="00000006"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -573,7 +573,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task10" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task10" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{Bash::Git bash}"/>
 					<value name="Flags" type="dword" data="00000005"/>
 					<value name="Hotkey" type="dword" data="0000a254"/>
@@ -582,7 +582,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task11" modified="2017-11-14 20:22:21" build="171025">
+				<key name="Task11" modified="2017-11-14 23:12:08" build="171025">
 					<value name="Name" type="string" data="{Tools::Vim}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="0000124e"/>
@@ -593,10 +593,10 @@
 				</key>
 			</key>
 
-			<key name="Apps" modified="2017-11-14 20:22:21" build="171025">
+			<key name="Apps" modified="2017-11-14 23:12:08" build="171025">
 				<value name="Count" type="long" data="0"/>
 			</key>
-			<key name="Colors" modified="2017-11-14 20:22:21" build="171025">
+			<key name="Colors" modified="2017-11-14 23:12:08" build="171025">
 				<key name="Palette1" modified="2015-11-24 14:49:10" build="151119">
 					<value name="Name" type="string" data="Monokai"/>
 					<value name="ExtendColors" type="hex" data="00"/>
@@ -698,7 +698,7 @@
 			<value name="StatusBar.Hide.Dpi" type="hex" data="01"/>
 			<value name="TabFlashChanged" type="long" data="8"/>
 			<value name="TabModifiedSuffix" type="string" data="[*]"/>
-			<key name="HotKeys" modified="2017-11-14 20:22:21" build="171025">
+			<key name="HotKeys" modified="2017-11-14 23:12:08" build="171025">
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="0000005b"/>
 				<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
