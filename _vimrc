@@ -46,6 +46,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" !!! NerdTree extra settings
+cd D:\Projects
+nmap <F2> :NERDTreeToggle<CR>
+" open nerd tree in folder of file in active buffer
+nmap <F3> :NERDTree %:p:h<CR>:cd %:p:h<CR>:pwd<CR>
+
 " !!! Put all the swap files and other crap in a temp folder
 " !!! GOTCHA: Don't forget to create the vimtmp directory in your ~ folder
 set backupdir=$VIM/vimfiles/vimtmp/backup//
@@ -145,3 +151,22 @@ call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
+
+" !!! Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"!!! vim-jsx settings
+let g:jsx_ext_required = 0
+
+"!!! vim-airline theme
+let g:airline_theme='behelit'
+
+"!!! turn on line numbers
+set number
