@@ -170,3 +170,6 @@ let g:airline_theme='behelit'
 
 "!!! turn on line numbers
 set number
+
+"!!! Set tab setting correctly
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab

@@ -73,3 +73,7 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the st
 #### Make it so that when I press escape the highlighting from a search goes away
 
 [This answer on SO](https://stackoverflow.com/a/1037182) explains how to map the esc key to the command `:noh` which clears the search history
+
+#### make it so that tabs are spaces and fix issues where indenting goes screwy
+
+[This answer on SO](https://stackoverflow.com/a/1878983) explains what all the settings are in the vimrc to make all this magic happen
