@@ -28,6 +28,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install vim-gitgutter [from this article](https://vimawesome.com/plugin/vim-gitgutter).
 1. Install vim-airline [from this article](https://vimawesome.com/plugin/vim-airline).
 1. Install vim-airline-themes [from this article](https://vimawesome.com/plugin/vim-airline-themes).
+1. Install numbers.vim [from this githum](https://github.com/myusuf3/numbers.vim).
 
 ## ConEmu Settings
 
@@ -56,7 +57,7 @@ Main > Update > Preferred release type | Stable
 Startup > Startup options > Specified named task | {Bash::Git bash}
 Startup > Environment | Added the line `set projects=<projects folder path>`
 Startup > Tasks | Added a Tools::Vim task I also set the hotkey for this task to Alt+N
-Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+T and also set the startup Project to my projects folder and set as Default task for new console
+Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set the startup Project to my projects folder and set as Default task for new console
 
 ## Problems I'm sure I can solve but haven't yet
 - Install a fuzzy finder
