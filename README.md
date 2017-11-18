@@ -29,6 +29,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install vim-airline [from this article](https://vimawesome.com/plugin/vim-airline).
 1. Install vim-airline-themes [from this article](https://vimawesome.com/plugin/vim-airline-themes).
 1. Install numbers.vim [from this githum](https://github.com/myusuf3/numbers.vim).
+1. Install surround.vim [from this article](https://vimawesome.com/plugin/surround-vim).
 
 ## ConEmu Settings
 
