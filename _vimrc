@@ -170,6 +170,8 @@ let g:airline_theme='behelit'
 
 "!!! turn on line numbers
 set number
+nnoremap <F4> :NumbersToggle<CR>
+nnoremap <F5> :NumbersOnOff<CR>
 
 "!!! Set tab setting correctly
 set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab

@@ -573,16 +573,16 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task10" modified="2017-11-16 21:58:38" build="171025">
+				<key name="Task10" modified="2017-11-18 14:12:45" build="171025">
 					<value name="Name" type="string" data="{Bash::Git bash}"/>
 					<value name="Flags" type="dword" data="00000005"/>
-					<value name="Hotkey" type="dword" data="0000a254"/>
+					<value name="Hotkey" type="dword" data="00a01154"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="set &quot;PATH=%ConEmuDrive%\Program Files\Git\usr\bin;%PATH%&quot; &amp; &quot;%ConEmuDrive%\Program Files\Git\git-cmd.exe&quot; --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -new_console:p -new_console:d:D:\Projects "/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task11" modified="2017-11-16 21:58:38" build="171025">
+				<key name="Task11" modified="2017-11-18 14:12:45" build="171025">
 					<value name="Name" type="string" data="{Tools::Vim}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="0000124e"/>
@@ -593,10 +593,10 @@
 				</key>
 			</key>
 
-			<key name="Apps" modified="2017-11-16 21:58:38" build="171025">
+			<key name="Apps" modified="2017-11-18 14:12:45" build="171025">
 				<value name="Count" type="long" data="0"/>
 			</key>
-			<key name="Colors" modified="2017-11-16 21:58:38" build="171025">
+			<key name="Colors" modified="2017-11-18 14:12:45" build="171025">
 				<key name="Palette1" modified="2015-11-24 14:49:10" build="151119">
 					<value name="Name" type="string" data="Monokai"/>
 					<value name="ExtendColors" type="hex" data="00"/>
