@@ -95,9 +95,27 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+" This will supposedly make it use local eslint rather than the global one
+" haven't been able to get it to work yet though
+"let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+
+" Use custom symbols for the gutter icons for errors and warnings
+" turn these on when you can be bothered to source some icons
+"let g:syntastic_error_symbol = '❌'
+"let g:syntastic_style_error_symbol = '⁉️'
+"let g:syntastic_warning_symbol = '⚠️'
+"let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
 
 "!!! vim-jsx settings
 let g:jsx_ext_required = 0

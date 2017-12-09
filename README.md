@@ -23,6 +23,8 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install vim-devicon installation instruction [can be found here](https://vimawesome.com/plugin/vim-devicons). Note that because you installed the font in the last step and the third step is to make changes to the vimrc you only really need to clone the plugin to make this work.
 1. Install nerdtree-git-plugin using pathogen as per [github repo instructions](https://github.com/Xuyuanp/nerdtree-git-plugin).
 1. Install syntastic using pathogen as per [this vim awesome article](https://vimawesome.com/plugin/syntastic).
+1. After installing syntactic you'll need to make sure that eslint is setup for it to work with js files. Install eslint with `npm i -g eslint` then if you're using create-react-app you'll also need to install their config files globally `npm i -g eslint-config-react-app` then you're gonna need all the dependencies `npm i -g eslint-plugin-import eslint-plugin-flowtype eslint-plugin-jsx-a11y eslint-plugin-react babel-eslint`.
+1. Install syntastic-prefer-local so that syntastic prefers to look for eslint rc's locally than globally [here's the github](https://github.com/mtscout6/syntastic-local-eslint.vim)
 1. Install vim-javascript for syntax highlighting [from this github](https://github.com/pangloss/vim-javascript).
 1. Install vim-jsx for jsx syntax highlighting [from this github](https://github.com/mxw/vim-jsx).
 1. Install vim-gitgutter [from this article](https://vimawesome.com/plugin/vim-gitgutter).
@@ -79,3 +81,7 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set 
 #### make it so that tabs are spaces and fix issues where indenting goes screwy
 
 [This answer on SO](https://stackoverflow.com/a/1878983) explains what all the settings are in the vimrc to make all this magic happen
+
+#### Setup eslint and syntastic properly for linting
+
+[Here's a blog post](https://medium.com/usevim/in-editor-linting-with-syntastic-6814122bdbec) that I worked with to try and get eslint running the create-react-app stuff was more trial and error than anything else and I'd like to see if there's a way I can do that better.
