@@ -32,6 +32,13 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install vim-airline-themes [from this article](https://vimawesome.com/plugin/vim-airline-themes).
 1. Install numbers.vim [from this githum](https://github.com/myusuf3/numbers.vim).
 1. Install surround.vim [from this article](https://vimawesome.com/plugin/surround-vim).
+1. Download the latest release of universal ctags from [this repo](https://github.com/universal-ctags/ctags-win32/releases)
+1. Extract the zip and place it in your vimfiles under a folder called ctags.
+1. Add the ctags directory to your PATH variable.
+1. Add ctags to your global gitignor by running this command `git ignore tags -g`
+1. Go to the folder that you want to have ctags for and run `ctags -R --map-javascript=.jsx`
+1. Install Ctrl+P [from this github](https://github.com/ctrlpvim/ctrlp.vim)
+
 
 ## ConEmu Settings
 
