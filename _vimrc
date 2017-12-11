@@ -49,6 +49,7 @@ nnoremap <C-H> <C-W><C-H>
 " !!! NerdTree extra settings
 cd D:\Projects
 nmap <F2> :NERDTreeToggle<CR>
+nmap <F3> :NERDTreeFind<CR>
 
 " !!! Put all the swap files and other crap in a temp folder
 " !!! GOTCHA: Don't forget to create the vimtmp directory in your ~ folder
