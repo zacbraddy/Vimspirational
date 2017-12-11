@@ -39,6 +39,7 @@ endfunction
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+set shellslash
 
 " !!! Window navigation without having to use Ctrl-W first
 nnoremap <C-J> <C-W><C-J>
