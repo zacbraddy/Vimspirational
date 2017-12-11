@@ -50,6 +50,7 @@ nnoremap <C-H> <C-W><C-H>
 cd D:\Projects
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :NERDTreeFind<CR>
+let g:NERDTreeWinSize=60
 
 " !!! Put all the swap files and other crap in a temp folder
 " !!! GOTCHA: Don't forget to create the vimtmp directory in your ~ folder
