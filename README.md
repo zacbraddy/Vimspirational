@@ -24,7 +24,6 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install nerdtree-git-plugin using pathogen as per [github repo instructions](https://github.com/Xuyuanp/nerdtree-git-plugin).
 1. Install syntastic using pathogen as per [this vim awesome article](https://vimawesome.com/plugin/syntastic).
 1. After installing syntactic you'll need to make sure that eslint is setup for it to work with js files. Install eslint with `npm i -g eslint` then if you're using create-react-app you'll also need to install their config files globally `npm i -g eslint-config-react-app` then you're gonna need all the dependencies `npm i -g eslint-plugin-import eslint-plugin-flowtype eslint-plugin-jsx-a11y eslint-plugin-react babel-eslint`.
-1. Install syntastic-prefer-local so that syntastic prefers to look for eslint rc's locally than globally [here's the github](https://github.com/mtscout6/syntastic-local-eslint.vim)
 1. Install vim-javascript for syntax highlighting [from this github](https://github.com/pangloss/vim-javascript).
 1. Install vim-jsx for jsx syntax highlighting [from this github](https://github.com/mxw/vim-jsx).
 1. Install vim-gitgutter [from this article](https://vimawesome.com/plugin/vim-gitgutter).
@@ -70,6 +69,9 @@ Startup > Tasks | Added a Tools::Vim task I also set the hotkey for this task to
 Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set the startup Project to my projects folder and set as Default task for new console
 
 ## Problems I'm sure I can solve but haven't yet
+
+There are ways in which you can setup eslint to use the install in the node_modules local to your repo one way is to use this plugin called [syntastic-local-vim](https://github.com/mtscout6/syntastic-local-eslint.vim) but I found that on windows this actually breaks with something about ''C:' being an inoperable command, my guess is that there is a space in the path of something that this package tries to run which causes the error but I can't work out what. Because in the above instructions we install eslint globally this should all work correctly but there is a limitation in that we can only have one version of eslint installed globally and if we are workin gon multiple projects with differing versions of eslint then this could be a problem particularly if there are braking changes between the versions. For now this isn't a problem for me but it may be a problem that I have to try and solve later.
+
 - Install a fuzzy finder
 - Making it so that the backup, undo and swap directories are created automatically. Some [ideas for this can be found here](http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory)
 - Get autocompletiong for Javascript and if possible JSX and C#
@@ -92,3 +94,18 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set 
 #### Setup eslint and syntastic properly for linting
 
 [Here's a blog post](https://medium.com/usevim/in-editor-linting-with-syntastic-6814122bdbec) that I worked with to try and get eslint running the create-react-app stuff was more trial and error than anything else and I'd like to see if there's a way I can do that better.
+
+I was havin some problems with eslint whereby the plugin was saying that it couldn't get permission to access a file in my user directory with file name `.tmp`. I fixed this following the advice of [this github issue](https://github.com/mattn/gist-vim/issues/48) in which he says:
+
+```
+This is not a permissions problem, and windows DOES in fact unset read-only. It's just a GUI bug that it thinks the bit is set. If you don't believe me, bring up the command prompt, cd to where the folder is, then do: dir /a:r. The folder you turned read-only off will not appear, because it really IS off.
+
+The problem is really with the system() call. Just doing this from within vim will reproduce it:
+:echo system("echo hi")
+
+The problem is because some shell like cygwin shell is being used. I put these commands at the top of my _vimrc file to solve the problem:
+set shell=cmd
+set shellcmdflag=/c
+
+This problem is solved now. I am not certain why this fixes it, because it seems like a race condition where the tmp file is created and closed before the process is done using it. The tmp file is in fact created successfully (I saw this with procmon), but it is closed/deleted before it's truely done with it.
+```

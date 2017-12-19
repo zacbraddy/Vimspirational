@@ -110,10 +110,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " Use custom symbols for the gutter icons for errors and warnings
 " turn these on when you can be bothered to source some icons
-"let g:syntastic_error_symbol = '❌'
-"let g:syntastic_style_error_symbol = '⁉️'
-"let g:syntastic_warning_symbol = '⚠️'
-"let g:syntastic_style_warning_symbol = '💩'
+let g:syntastic_error_symbol = '' 
+let g:syntastic_style_error_symbol = '💩'
+let g:syntastic_warning_symbol = ''
+let g:syntastic_style_warning_symbol = '⁉️'
 
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
