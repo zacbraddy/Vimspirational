@@ -70,7 +70,11 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set 
 
 ## Problems I'm sure I can solve but haven't yet
 
+#### Setup eslint and syntastic properly for linting
+
 There are ways in which you can setup eslint to use the install in the node_modules local to your repo one way is to use this plugin called [syntastic-local-vim](https://github.com/mtscout6/syntastic-local-eslint.vim) but I found that on windows this actually breaks with something about ''C:' being an inoperable command, my guess is that there is a space in the path of something that this package tries to run which causes the error but I can't work out what. Because in the above instructions we install eslint globally this should all work correctly but there is a limitation in that we can only have one version of eslint installed globally and if we are workin gon multiple projects with differing versions of eslint then this could be a problem particularly if there are braking changes between the versions. For now this isn't a problem for me but it may be a problem that I have to try and solve later.
+
+#### General ideas
 
 - Making it so that the backup, undo and swap directories are created automatically. Some [ideas for this can be found here](http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory)
 - Get autocompletiong for C#
