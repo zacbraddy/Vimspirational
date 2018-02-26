@@ -36,7 +36,8 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Add the ctags directory to your PATH variable.
 1. Add ctags to your global gitignor by running this command `git ignore tags -g`
 1. Go to the folder that you want to have ctags for and run `ctags -R --map-javascript=.jsx`
-1. Install Ctrl+P [from this github](https://github.com/ctrlpvim/ctrlp.vim)
+1. Install Ctrl+P [from this github](https://github.com/ctrlpvim/ctrlp.vim) (<--- I never use this, consider removing it)
+1. Install import-js [from this github](https://github.com/galooshi/vim-import-js)
 
 
 ## ConEmu Settings
@@ -77,7 +78,7 @@ There are ways in which you can setup eslint to use the install in the node_modu
 #### General ideas
 
 - Making it so that the backup, undo and swap directories are created automatically. Some [ideas for this can be found here](http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory)
-- Get autocompletiong for C#
+- Get autocompletion for C#
 
 ## Problems I've managed to overcome
 
@@ -111,3 +112,7 @@ set shellcmdflag=/c
 
 This problem is solved now. I am not certain why this fixes it, because it seems like a race condition where the tmp file is created and closed before the process is done using it. The tmp file is in fact created successfully (I saw this with procmon), but it is closed/deleted before it's truely done with it.
 ```
+
+#### Paths with regards to import statements in javascript
+
+I have included in my vimrc a motion to set the pwd to the directory of the file in the currently selected buffer, to do this you can use `,cd` this helps when you are wanting to do autocompletion with ^X^F and it also helps when you are wanting to use import-js with <Leader>j to find local modules to import. I've found it exceedingly difficult to do either of these with modules brought in with npm as the project I work on can have very deeply nested folder structures and it's not always convenient to work on the root level of the project.
