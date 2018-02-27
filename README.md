@@ -39,12 +39,13 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install Ctrl+P [from this github](https://github.com/ctrlpvim/ctrlp.vim) (<--- I never use this, consider removing it)
 1. Install import-js [from this github](https://github.com/galooshi/vim-import-js)
 1. Install EasyGrep [from this github](https://github.com/dkprice/vim-easygrep)
+1. Install vim-airline-clock [from this github](https://github.com/enricobacis/vim-airline-clock)
 
 ## ConEmu Settings
 
 |Setting Name|Value|
 ---|---
-Features > Colors | Solarized
+Features > Colors | Current Colour Scheme (Custom one that I made to work well with the deus airline them)
 Features > Status bar > Show status bar | off
 Features > In-console options > Use Clink in prompt | On
 Features > Transparency > Alpha transparency > Active window transparency | Off
