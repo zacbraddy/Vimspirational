@@ -38,7 +38,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Go to the folder that you want to have ctags for and run `ctags -R --map-javascript=.jsx`
 1. Install Ctrl+P [from this github](https://github.com/ctrlpvim/ctrlp.vim) (<--- I never use this, consider removing it)
 1. Install import-js [from this github](https://github.com/galooshi/vim-import-js)
-
+1. Install EasyGrep [from this github](https://github.com/dkprice/vim-easygrep)
 
 ## ConEmu Settings
 
