@@ -128,11 +128,17 @@ let g:jsx_ext_required = 0
 "!!! vim-airline theme
 let g:airline_theme='deus'
 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
 " unicode symbols
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
@@ -141,7 +147,7 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
+let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
@@ -151,7 +157,7 @@ nnoremap <F4> :NumbersToggle<CR>
 nnoremap <F5> :NumbersOnOff<CR>
 
 "!!! Set tab setting correctly
-set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 "!!! Change pwd to current open buffer path with ,cd
 nnoremap ,cd : cd %:p:h<CR>:pwd<CR>
