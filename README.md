@@ -78,6 +78,8 @@ There are ways in which you can setup eslint to use the install in the node_modu
 
 #### General ideas
 
+- Got to find a way to make eslint work with local installs of eslint so I don't have to reinstall eslint every time I change projects. There are a lot of solutions I've found for Linux and OSX installs but none that work for windows. Gonna need to look into it more.
+- Checkout [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for code completion. Looks pretty cool!
 - Making it so that the backup, undo and swap directories are created automatically. Some [ideas for this can be found here](http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory)
 - Get autocompletion for C#
 
@@ -101,6 +103,9 @@ There are ways in which you can setup eslint to use the install in the node_modu
 
 I was havin some problems with eslint whereby the plugin was saying that it couldn't get permission to access a file in my user directory with file name `.tmp`. I fixed this following the advice of [this github issue](https://github.com/mattn/gist-vim/issues/48) in which he says:
 
+I spent bloody ages trying to get syntasic to work with the linting in my work's project. Because I have installed everything for eslint globally and used that instead of trying to hack around and make it use the local eslint it means that you need to make sure that you have all the same versions of eslint and it's plugins installed globally as your project does locally. This is super important for it to work correctly and is also a complete pain because you have to install different versions of eslint whenever you change projects! I'm going to have to solve this one soon because it's not really do able going forward.
+
+Whilst I was investigating all this I also found that a useful command `set noshellslash` can help Windows to understand the different slashes that are used in paths in vim. Didn't end up needing it for this one but it was useful to know. There's lots of info about problems with shell setting as they pertain to windows machines [here](https://github.com/airblade/vim-system-escape).
 ```
 This is not a permissions problem, and windows DOES in fact unset read-only. It's just a GUI bug that it thinks the bit is set. If you don't believe me, bring up the command prompt, cd to where the folder is, then do: dir /a:r. The folder you turned read-only off will not appear, because it really IS off.
 

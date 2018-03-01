@@ -105,6 +105,7 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'eslint -f compact --'
 
 " This will supposedly make it use local eslint rather than the global one
 " haven't been able to get it to work yet though
