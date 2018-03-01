@@ -157,7 +157,7 @@ nnoremap <F4> :NumbersToggle<CR>
 nnoremap <F5> :NumbersOnOff<CR>
 
 "!!! Set tab setting correctly
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 
 "!!! Change pwd to current open buffer path with ,cd
 nnoremap ,cd : cd %:p:h<CR>:pwd<CR>
