@@ -102,11 +102,6 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set 
 
 I was havin some problems with eslint whereby the plugin was saying that it couldn't get permission to access a file in my user directory with file name `.tmp`. I fixed this following the advice of [this github issue](https://github.com/mattn/gist-vim/issues/48) in which he says:
 
-I spent bloody ages trying to get syntasic to work with the linting in my work's project. Because I had installed everything for eslint globally and used that instead of trying to hack around and make it use the local eslint it means that you needed to make sure that I had all the same versions of eslint and it's plugins installed globally as my project did locally. I did this for a while but I eventually found a way to make the local install work. This involved using the `npm-exec.bat` that I foudn [here](https://gist.github.com/joeyespo/a532500f5615bf3a4bacf1f410407115) and the also installing vim-rooter to change the root path for me as I opened files so I didn't have to do it myself with the `,cd` command I had for myself. 
-
-Whilst I was investigating all this I also found that a useful command `set noshellslash` can help Windows to understand the different slashes that are used in paths in vim. There's lots of info about problems with shell setting as they pertain to windows machines [here](https://github.com/airblade/vim-system-escape). In the end I only needed the `noshellslash`
-
-Finally managed
 ```
 This is not a permissions problem, and windows DOES in fact unset read-only. It's just a GUI bug that it thinks the bit is set. If you don't believe me, bring up the command prompt, cd to where the folder is, then do: dir /a:r. The folder you turned read-only off will not appear, because it really IS off.
 
@@ -119,6 +114,10 @@ set shellcmdflag=/c
 
 This problem is solved now. I am not certain why this fixes it, because it seems like a race condition where the tmp file is created and closed before the process is done using it. The tmp file is in fact created successfully (I saw this with procmon), but it is closed/deleted before it's truely done with it.
 ```
+
+I spent bloody ages trying to get syntasic to work with the linting in my work's project. Because I had installed everything for eslint globally and used that instead of trying to hack around and make it use the local eslint it means that you needed to make sure that I had all the same versions of eslint and it's plugins installed globally as my project did locally. I did this for a while but I eventually found a way to make the local install work. This involved using the `npm-exec.bat` that I foudn [here](https://gist.github.com/joeyespo/a532500f5615bf3a4bacf1f410407115) and the also installing vim-rooter to change the root path for me as I opened files so I didn't have to do it myself with the `,cd` command I had for myself. 
+
+Whilst I was investigating all this I also found that a useful command `set noshellslash` can help Windows to understand the different slashes that are used in paths in vim. There's lots of info about problems with shell setting as they pertain to windows machines [here](https://github.com/airblade/vim-system-escape). In the end I only needed the `noshellslash`
 
 #### Paths with regards to import statements in javascript
 

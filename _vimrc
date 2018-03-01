@@ -39,9 +39,11 @@ endfunction
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
-set shellslash
+
+" !!! Shell setup for windows
 set shell=cmd
 set shellcmdflag=/c
+set noshellslash
 
 " !!! Window navigation without having to use Ctrl-W first
 nnoremap <C-J> <C-W><C-J>
@@ -106,7 +108,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm-exec eslint -f compact --'
-set noshellslash
 
 " Use custom symbols for the gutter icons for errors and warnings
 " turn these on when you can be bothered to source some icons
