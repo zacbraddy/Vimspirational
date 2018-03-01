@@ -5,7 +5,6 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 - [Steps to setup on Windows](#steps-to-setup-on-windows)
 - [ConEmu settings](#conemu-settings)
 - [Problems I'm sure I can solve but haven't yet](#problems-im-sure-i-can-solve-but-havent-yet)
-- [Problems I faced during install that I haven't solved](#problems-i-faced-during-install-that-i-havent-solved)
 - [Problems I've managed to overcome](#problems-ive-managed-to-overcome)
 
 ## Steps to setup on Windows
@@ -23,6 +22,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install vim-devicon installation instruction [can be found here](https://vimawesome.com/plugin/vim-devicons). Note that because you installed the font in the last step and the third step is to make changes to the vimrc you only really need to clone the plugin to make this work.
 1. Install nerdtree-git-plugin using pathogen as per [github repo instructions](https://github.com/Xuyuanp/nerdtree-git-plugin).
 1. Install syntastic using pathogen as per [this vim awesome article](https://vimawesome.com/plugin/syntastic).
+1. Install syntastic-local-eslint from [this github repo](https://github.com/mtscout6/syntastic-local-eslint.vim).
 1. After installing syntactic you'll need to make sure that eslint is setup for it to work with js files. Install eslint with `npm i -g eslint` then if you're using create-react-app you'll also need to install their config files globally `npm i -g eslint-config-react-app` then you're gonna need all the dependencies `npm i -g eslint-plugin-import eslint-plugin-flowtype eslint-plugin-jsx-a11y eslint-plugin-react babel-eslint`.
 1. Install vim-javascript for syntax highlighting [from this github](https://github.com/pangloss/vim-javascript).
 1. Install vim-jsx for jsx syntax highlighting [from this github](https://github.com/mxw/vim-jsx).
@@ -40,6 +40,9 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install import-js [from this github](https://github.com/galooshi/vim-import-js)
 1. Install EasyGrep [from this github](https://github.com/dkprice/vim-easygrep)
 1. Install vim-airline-clock [from this github](https://github.com/enricobacis/vim-airline-clock)
+1. Install vim-rooter [from this github](https://github.com/airblade/vim-rooter)
+1. Add the `npm-exec.bat` file to the `$VIM\bundle` folder (note when I say `\$VIM` I mean your install directory under the vimfiles folder so for example `C:\Vim\vim\vimfiles\bundle`.
+1. Add the `$VIM\bundle` folder to your PATH variable.
 
 ## ConEmu Settings
 
@@ -72,16 +75,12 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set 
 
 ## Problems I'm sure I can solve but haven't yet
 
-#### Setup eslint and syntastic properly for linting
-
-There are ways in which you can setup eslint to use the install in the node_modules local to your repo one way is to use this plugin called [syntastic-local-vim](https://github.com/mtscout6/syntastic-local-eslint.vim) but I found that on windows this actually breaks with something about ''C:' being an inoperable command, my guess is that there is a space in the path of something that this package tries to run which causes the error but I can't work out what. Because in the above instructions we install eslint globally this should all work correctly but there is a limitation in that we can only have one version of eslint installed globally and if we are workin gon multiple projects with differing versions of eslint then this could be a problem particularly if there are braking changes between the versions. For now this isn't a problem for me but it may be a problem that I have to try and solve later.
+- vim-rooter seems to only change the pwd after syntastic as already made it's check which means the first file you open for any project won't automatically get linted because syntastic falls over the background, every subsequent file opened doesn't have this problem because the root has already been changed. This would be a pretty big problem if you were working on two projects at the same time and flicking back and forth but as it stands this is a minor inconvenience for me so I'm leaving it as a problem to solve another day.
 
 #### General ideas
 
-- Got to find a way to make eslint work with local installs of eslint so I don't have to reinstall eslint every time I change projects. There are a lot of solutions I've found for Linux and OSX installs but none that work for windows. Gonna need to look into it more.
 - Checkout [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for code completion. Looks pretty cool!
 - Making it so that the backup, undo and swap directories are created automatically. Some [ideas for this can be found here](http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory)
-- Get autocompletion for C#
 
 ## Problems I've managed to overcome
 
@@ -103,9 +102,11 @@ There are ways in which you can setup eslint to use the install in the node_modu
 
 I was havin some problems with eslint whereby the plugin was saying that it couldn't get permission to access a file in my user directory with file name `.tmp`. I fixed this following the advice of [this github issue](https://github.com/mattn/gist-vim/issues/48) in which he says:
 
-I spent bloody ages trying to get syntasic to work with the linting in my work's project. Because I have installed everything for eslint globally and used that instead of trying to hack around and make it use the local eslint it means that you need to make sure that you have all the same versions of eslint and it's plugins installed globally as your project does locally. This is super important for it to work correctly and is also a complete pain because you have to install different versions of eslint whenever you change projects! I'm going to have to solve this one soon because it's not really do able going forward.
+I spent bloody ages trying to get syntasic to work with the linting in my work's project. Because I had installed everything for eslint globally and used that instead of trying to hack around and make it use the local eslint it means that you needed to make sure that I had all the same versions of eslint and it's plugins installed globally as my project did locally. I did this for a while but I eventually found a way to make the local install work. This involved using the `npm-exec.bat` that I foudn [here](https://gist.github.com/joeyespo/a532500f5615bf3a4bacf1f410407115) and the also installing vim-rooter to change the root path for me as I opened files so I didn't have to do it myself with the `,cd` command I had for myself. 
 
-Whilst I was investigating all this I also found that a useful command `set noshellslash` can help Windows to understand the different slashes that are used in paths in vim. Didn't end up needing it for this one but it was useful to know. There's lots of info about problems with shell setting as they pertain to windows machines [here](https://github.com/airblade/vim-system-escape).
+Whilst I was investigating all this I also found that a useful command `set noshellslash` can help Windows to understand the different slashes that are used in paths in vim. There's lots of info about problems with shell setting as they pertain to windows machines [here](https://github.com/airblade/vim-system-escape). In the end I only needed the `noshellslash`
+
+Finally managed
 ```
 This is not a permissions problem, and windows DOES in fact unset read-only. It's just a GUI bug that it thinks the bit is set. If you don't believe me, bring up the command prompt, cd to where the folder is, then do: dir /a:r. The folder you turned read-only off will not appear, because it really IS off.
 

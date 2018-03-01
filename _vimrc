@@ -50,7 +50,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " !!! NerdTree extra settings
-cd C:\Projects
+cd D:\Projects
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :NERDTreeFind<CR>
 let g:NERDTreeWinSize=60
@@ -105,11 +105,8 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'eslint -f compact --'
-
-" This will supposedly make it use local eslint rather than the global one
-" haven't been able to get it to work yet though
-"let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+let g:syntastic_javascript_eslint_exe = 'npm-exec eslint -f compact --'
+set noshellslash
 
 " Use custom symbols for the gutter icons for errors and warnings
 " turn these on when you can be bothered to source some icons
@@ -168,3 +165,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+
+"!!! Vim-rooter settings
+let g:rooter_silent_chdir = 1
+let g:rooter_use_lcd = 1
