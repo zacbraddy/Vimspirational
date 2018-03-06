@@ -52,7 +52,14 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " !!! NerdTree extra settings
-cd D:\Projects
+if isdirectory("D:/Projects/") 
+  cd D:\Projects
+endif
+
+if isdirectory("C:/Projects/") 
+  cd C:\Projects
+endif
+
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :NERDTreeFind<CR>
 let g:NERDTreeWinSize=60
@@ -156,7 +163,8 @@ nnoremap <F4> :NumbersToggle<CR>
 nnoremap <F5> :NumbersOnOff<CR>
 
 "!!! Set tab setting correctly
-set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
+nnoremap <leader>w :set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab <bar> echo "Sorry you're at work fella" <CR>
+nnoremap <leader>h :set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab <bar> echo "You're at home my dude!" <CR>
 
 "!!! Change pwd to current open buffer path with ,cd
 nnoremap ,cd : cd %:p:h<CR>:pwd<CR>
