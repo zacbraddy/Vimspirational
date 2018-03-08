@@ -43,6 +43,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install vim-rooter [from this github](https://github.com/airblade/vim-rooter)
 1. Add the `npm-exec.bat` file to the `$VIM\bundle` folder (note when I say `\$VIM` I mean your install directory under the vimfiles folder so for example `C:\Vim\vim\vimfiles\bundle`.
 1. Add the `$VIM\bundle` folder to your PATH variable.
+1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
 
 ## ConEmu Settings
 
