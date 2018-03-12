@@ -1,4 +1,4 @@
-" !!! Begin settings that were here by default
+" {{{ Begin settings that were here by default
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
@@ -32,26 +32,19 @@ function MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
-" !!! End settings that were here by default
+" End settings that were here by default}}}
 
-" !!! Begin Zac's changes 
-" !!! Pathogen installl variables
+" {{{1 Begin Zac's changes 
+" Pathogen install variables
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-" !!! Shell setup for windows
+" {{{2 Start Shell setup for windows and initialisation
 set shell=cmd
 set shellcmdflag=/c
 set noshellslash
 
-" !!! Window navigation without having to use Ctrl-W first
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" !!! NerdTree extra settings
 if isdirectory("D:/Projects/") 
   cd D:\Projects
 endif
@@ -60,19 +53,57 @@ if isdirectory("C:/Projects/")
   cd C:\Projects
 endif
 
-nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :NERDTreeFind<CR>
-let g:NERDTreeWinSize=60
-
-" !!! Put all the swap files and other crap in a temp folder
-" !!! GOTCHA: Don't forget to create the vimtmp directory in your ~ folder
+" Put all the swap files and other crap in a temp folder
+" GOTCHA: Don't forget to create the vimtmp directory in your ~ folder
 set backupdir=$VIM/vimfiles/vimtmp/backup//
 set directory=$VIM/vimfiles/vimtmp/swap//
 set undodir=$VIM/vimfiles/vimtmp/undo//
 
-" !!! Clear highlighting on escape in normal mode
+" set fold method to marker by default
+set foldmethod=marker
+
+" turn on line numbers by default
+set number
+
+" !!! End Shell setup for windows and initialisation}}}2
+
+" {{{2 Start Key Remaps
+" Window navigation without having to use Ctrl-W first
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" NerdTree keybinds
+nmap <F2> :NERDTreeToggle<CR>
+nmap <F3> :NERDTreeFind<CR>
+
+" Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
+
+" Toggle line numbers
+nnoremap <F4> :NumbersToggle<CR>
+nnoremap <F5> :NumbersOnOff<CR>
+
+" Set tab setting correctly
+nnoremap <leader>w :set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab <bar> echo "Sorry you're at work fella" <CR>
+nnoremap <leader>h :set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab <bar> echo "You're at home my dude!" <CR>
+
+" Change pwd to current open buffer path with ,cd
+nnoremap ,cd : cd %:p:h<CR>:pwd<CR>
+
+" Get out of insert mode with a ;n (pnemonic go normal)
+inoremap ;n <esc>
+
+" switch between foldmethods
+nnoremap <leader>fm :set foldmethod=marker <bar> echo "Foldmethod changed to market" <CR>
+nnoremap <leader>fi :set foldmethod=indent <bar> echo "Foldmethod changed to indent" <CR>
+
+" !!! End Key Remaps}}}2
+
+" {{{2 Start NerdTree settings
+let g:NERDTreeWinSize=60
 
 " !!! Set nerdfont for vimdevicons
 set encoding=utf8
@@ -103,7 +134,9 @@ call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 
-" !!! Syntastic settings
+" !!! End NerdTree settings}}}2
+
+" {{{2 Start Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -128,10 +161,9 @@ highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
 
-"!!! vim-jsx settings
-let g:jsx_ext_required = 0
+" !!! End Syntastic settings}}}2
 
-"!!! vim-airline theme
+" {{{2 Start vim-airline settings
 let g:airline_theme='deus'
 
 if !exists('g:airline_symbols')
@@ -157,24 +189,19 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
-"!!! turn on line numbers
-set number
-nnoremap <F4> :NumbersToggle<CR>
-nnoremap <F5> :NumbersOnOff<CR>
+" !!! End vim-airline settings}}}2
 
-"!!! Set tab setting correctly
-nnoremap <leader>w :set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab <bar> echo "Sorry you're at work fella" <CR>
-nnoremap <leader>h :set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab <bar> echo "You're at home my dude!" <CR>
-
-"!!! Change pwd to current open buffer path with ,cd
-nnoremap ,cd : cd %:p:h<CR>:pwd<CR>
-
-"!!! Ctrl-P Settings
+" Ctrl-P Settings
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
-"!!! Vim-rooter settings
+" Vim-rooter settings
 let g:rooter_silent_chdir = 1
 let g:rooter_use_lcd = 1
+
+" vim-jsx settings
+let g:jsx_ext_required = 0
+
+" End Zac's changes}}}1
