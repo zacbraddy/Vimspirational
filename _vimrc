@@ -86,6 +86,10 @@ nnoremap <esc>^[ <esc>^[
 nnoremap <F4> :NumbersToggle<CR>
 nnoremap <F5> :NumbersOnOff<CR>
 
+" Set and unset shellslash
+nnoremap <F6> :set shellslash<CR>
+nnoremap <F7> :set noshellslash<CR>
+
 " Set tab setting correctly
 nnoremap <leader>w :set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab <bar> echo "Sorry you're at work fella" <CR>
 nnoremap <leader>h :set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab <bar> echo "You're at home my dude!" <CR>
