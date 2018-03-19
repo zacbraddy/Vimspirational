@@ -67,6 +67,13 @@ set number
 
 " !!! End Shell setup for windows and initialisation}}}2
 
+" {{{2 Start Custom commands
+
+" close all open buffers
+:command CAB silent %bd|echo "All buffers just got blow'd up"
+
+" !!! End Custom commands}}}2
+
 " {{{2 Start Key Remaps
 " Window navigation without having to use Ctrl-W first
 nnoremap <C-J> <C-W><C-J>
