@@ -79,18 +79,18 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set 
 |Command or Key remap|Mode|What it does|Why?|
 ---|---|---|---
 :CAB|Command|Silently deletes all open buffers|When I begin a new problem I like to have a clean slate so I close all my buffers before beginning a new
-<C-J>, <C-K>, <C-H>, <C-L>|Normal|Moves the cursor between active windows in the appropriate direction|Just didn't want to have to hit <C-W> before each of them, this simplifies things
-<F2>|Normal|Runs the `:NERDTreeToggle` command to open NERDTree|Less key presses to open NERDTree
-<F3>|Normal|Runs `:NERDTreeFind`|I thought this was going to be useful in the beginning but now I barely use it because when I open buffers it's normally through NERDTree anyway
-<esc>|Normal|Runs the `:noh` command|This is to clear the highlighting left behind from a regex search in fewer key presses
-<F4>|Normal|Runs `:NumbersToggle`|Originally when I started using relative line numbers I thought this would be useful, I barely use it now I'm used of relative line numbers and could probably get rid of it
-<F5>|Normal|Runs `:NumbersOnOff`|See above
-<F6>|Normal,Insert|Runs `:set shellslash`|Some plugins I use need `:set noshellslash` to work correctly because I'm on windows however with that set like that when I use ^X^F in insert mode it fills in the wrong slashes for my directories, I needed a quick way to flick between the two
-<F7>|Normal,Insert|Runs `:set noshellslash`|See above
-<leader>w, <leader>h|Normal|Sets the tab settings to 4 spaces|My work requires me to use 4 spaces when I'm coding but I prefer 2 so I needed a quick way to switch between the two when I'm switching between doing my own coding and works
+`<C-J>,` `<C-K>,` `<C-H>,` `<C-L>`|Normal|Moves the cursor between active windows in the appropriate direction|Just didn't want to have to hit <C-W> before each of them, this simplifies things
+`<F2>`|Normal|Runs the `:NERDTreeToggle` command to open NERDTree|Less key presses to open NERDTree
+`<F3>`|Normal|Runs `:NERDTreeFind`|I thought this was going to be useful in the beginning but now I barely use it because when I open buffers it's normally through NERDTree anyway
+`<esc>`|Normal|Runs the `:noh` command|This is to clear the highlighting left behind from a regex search in fewer key presses
+`<F4>`|Normal|Runs `:NumbersToggle`|Originally when I started using relative line numbers I thought this would be useful, I barely use it now I'm used of relative line numbers and could probably get rid of it
+`<F5>`|Normal|Runs `:NumbersOnOff`|See above
+`<F6>`|Normal,Insert|Runs `:set shellslash`|Some plugins I use need `:set noshellslash` to work correctly because I'm on windows however with that set like that when I use ^X^F in insert mode it fills in the wrong slashes for my directories, I needed a quick way to flick between the two
+`<F7>`|Normal,Insert|Runs `:set noshellslash`|See above
+`<leader>w`, `<leader>h`|Normal|Sets the tab settings to 4 spaces|My work requires me to use 4 spaces when I'm coding but I prefer 2 so I needed a quick way to switch between the two when I'm switching between doing my own coding and works
 ,cd|Normal|Sets the pwd to the the directory of the currently open buffer|This helps for when you are trying to use ^X^F that's what it was there for before, although now I'm using vim-rooter I wonder if I don't need this anymore....hmmm....I'll have to test this.
 ;n|Insert,Visual|Presses esc i.e. changes back to normal mode|Just wanted to try and avoid having to leave the home row to press esc as often as I could
-<leader>fm, <leader>fi|Normal|Sets the fold method to marker or indent as appropriate|Just so I can flick on and off folding in my code if I wanted to. Rarely used but still useful
+`<leader>fm`, `<leader>fi`|Normal|Sets the fold method to marker or indent as appropriate|Just so I can flick on and off folding in my code if I wanted to. Rarely used but still useful
 
 ## Problems I'm sure I can solve but haven't yet
 
