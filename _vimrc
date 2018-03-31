@@ -82,8 +82,8 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " NerdTree keybinds
-nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :NERDTreeFind<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F3> :NERDTreeFind<CR>
 
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
@@ -96,6 +96,8 @@ nnoremap <F5> :NumbersOnOff<CR>
 " Set and unset shellslash
 nnoremap <F6> :set shellslash<CR>
 nnoremap <F7> :set noshellslash<CR>
+inoremap <F6> :set shellslash<CR>
+inoremap <F7> :set noshellslash<CR>
 
 " Set tab setting correctly
 nnoremap <leader>w :set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab <bar> echo "Sorry you're at work fella" <CR>
@@ -106,6 +108,7 @@ nnoremap ,cd : cd %:p:h<CR>:pwd<CR>
 
 " Get out of insert mode with a ;n (pnemonic go normal)
 inoremap ;n <esc>
+vnoremap ;n <esc>
 
 " switch between foldmethods
 nnoremap <leader>fm :set foldmethod=marker <bar> echo "Foldmethod changed to market" <CR>

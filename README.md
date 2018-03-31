@@ -36,14 +36,14 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Add the ctags directory to your PATH variable.
 1. Add ctags to your global gitignor by running this command `git ignore tags -g`
 1. Go to the folder that you want to have ctags for and run `ctags -R --map-javascript=.jsx`
-1. Install Ctrl+P [from this github](https://github.com/ctrlpvim/ctrlp.vim) (<--- I never use this, consider removing it)
 1. Install import-js [from this github](https://github.com/galooshi/vim-import-js)
-1. Install EasyGrep [from this github](https://github.com/dkprice/vim-easygrep)
 1. Install vim-airline-clock [from this github](https://github.com/enricobacis/vim-airline-clock)
 1. Install vim-rooter [from this github](https://github.com/airblade/vim-rooter)
 1. Add the `npm-exec.bat` file to the `$VIM\bundle` folder (note when I say `\$VIM` I mean your install directory under the vimfiles folder so for example `C:\Vim\vim\vimfiles\bundle`.
 1. Add the `$VIM\bundle` folder to your PATH variable.
 1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
+1. Install ack from the [chocolatey repo](https://chocolatey.org/packages/ack). Note this will automatically install StrawberryPerl, to test this has worked correctly run the comman `perl` in the command line. StrawberryPerl adds things to your path variable to make this possible so if running the `perl` command gives you an inoperable command error then close your command window, open a new one and try again. If that doesn't work maybe try adding the paths StrawberryPerl added to the system path to your private path? Other than that you're on your own.
+1. Install ack.vim via pathogen the command is on [their repo](https://github.com/mileszs/ack.vim)
 
 ## ConEmu Settings
 
@@ -73,6 +73,24 @@ Startup > Startup options > Specified named task | {Bash::Git bash}
 Startup > Environment | Added the line `set projects=<projects folder path>`
 Startup > Tasks | Added a Tools::Vim task I also set the hotkey for this task to Alt+N
 Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set the startup Project to my projects folder and set as Default task for new console
+
+## Custom commands and key remaps in my vimrc
+
+|Command or Key remap|Mode|What it does|Why?|
+---|---|---|---
+:CAB|Command|Silently deletes all open buffers|When I begin a new problem I like to have a clean slate so I close all my buffers before beginning a new
+<C-J>, <C-K>, <C-H>, <C-L>|Normal|Moves the cursor between active windows in the appropriate direction|Just didn't want to have to hit <C-W> before each of them, this simplifies things
+<F2>|Normal|Runs the `:NERDTreeToggle` command to open NERDTree|Less key presses to open NERDTree
+<F3>|Normal|Runs `:NERDTreeFind`|I thought this was going to be useful in the beginning but now I barely use it because when I open buffers it's normally through NERDTree anyway
+<esc>|Normal|Runs the `:noh` command|This is to clear the highlighting left behind from a regex search in fewer key presses
+<F4>|Normal|Runs `:NumbersToggle`|Originally when I started using relative line numbers I thought this would be useful, I barely use it now I'm used of relative line numbers and could probably get rid of it
+<F5>|Normal|Runs `:NumbersOnOff`|See above
+<F6>|Normal,Insert|Runs `:set shellslash`|Some plugins I use need `:set noshellslash` to work correctly because I'm on windows however with that set like that when I use ^X^F in insert mode it fills in the wrong slashes for my directories, I needed a quick way to flick between the two
+<F7>|Normal,Insert|Runs `:set noshellslash`|See above
+<leader>w, <leader>h|Normal|Sets the tab settings to 4 spaces|My work requires me to use 4 spaces when I'm coding but I prefer 2 so I needed a quick way to switch between the two when I'm switching between doing my own coding and works
+,cd|Normal|Sets the pwd to the the directory of the currently open buffer|This helps for when you are trying to use ^X^F that's what it was there for before, although now I'm using vim-rooter I wonder if I don't need this anymore....hmmm....I'll have to test this.
+;n|Insert,Visual|Presses esc i.e. changes back to normal mode|Just wanted to try and avoid having to leave the home row to press esc as often as I could
+<leader>fm, <leader>fi|Normal|Sets the fold method to marker or indent as appropriate|Just so I can flick on and off folding in my code if I wanted to. Rarely used but still useful
 
 ## Problems I'm sure I can solve but haven't yet
 
@@ -127,3 +145,9 @@ I have included in my vimrc a motion to set the pwd to the directory of the file
 #### Getting Airline to look pretty
 
 I found that the airline theme mixing with the cmdr colours was a bit of a pain. The Airline theme definitely has some affect on the colours but basically I just had to choose an airline theme that was close to what I wanted and then tweak my cmdr colours until I got something I liked. What I found that sucked is that the cmdr uses the same colour for both Insert and Visual mode so I couldn't choose different colours for them but hey ho. As for the symbols needed to make airline look pretty I was able to use [this SO article answer](https://vi.stackexchange.com/questions/3359/how-do-i-fix-the-status-bar-symbols-in-the-airline-plugin) to make the changes I needed to the vimrc. I skipped the installing the appropriate fonts bit because my SauceCode Nerd Font works fine. I also deleted the first line out of every two in the vimrc lines in the stack overflow article because they were duplicates and did nothing for the config anyway.
+
+## Things I've tried that didn't work out for me
+
+I had a quick try of Ctrl+P but I found it a bit hard to get my head around and when I was able to make it do what I needed it to I found it quite slow. It's entirely possible this was my fault and lack of understanding, it might be worth revisiting it when I have more experience.
+
+I also tried EasyGrep, again I found that when I finally got it to do what I wanted it to do it was prohibitively slow. I could have spent more time figuring out what I needed to do to optimise it but then I found a post from the creator of EasyGrep who suggested Ack. This worked perfectly. I should clarify, what I wanted EasyGrep to do was search for tokens in all files in my project for this I found it was far too slow, however the basic functions mapped to the leader keys for grepping across the buffers that were open or active window were excellent, but then I could probably get then from mappings in my vimrc pretty easily.
