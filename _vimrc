@@ -150,32 +150,17 @@ call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 
 " !!! End NerdTree settings}}}2
 
-" {{{2 Start Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" {{{2 Start ALE settings
+let g:ale_fixers = {
+	\  'javascript': ['eslint']
+	\}
+let g:ale_sign_error = '' 
+let g:ale_sign_warning = ''
+let g:airline#extensions#ale#enabled = 1
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'npm-exec eslint -f compact --'
-
-" Use custom symbols for the gutter icons for errors and warnings
-" turn these on when you can be bothered to source some icons
-let g:syntastic_error_symbol = '' 
-let g:syntastic_style_error_symbol = '💩'
-let g:syntastic_warning_symbol = ''
-let g:syntastic_style_warning_symbol = '⁉️'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-
-" !!! End Syntastic settings}}}2
+" !!! End ALE settings}}}2
 
 " {{{2 Start vim-airline settings
 let g:airline_theme='deus'
@@ -205,11 +190,17 @@ let g:airline_symbols.linenr = ''
 
 " !!! End vim-airline settings}}}2
 
-" Ctrl-P Settings
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+" vim-flow setings
+
+let g:flow#autoclose = 1
+"Use locally installed flow
+let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+    let local_flow= getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:flow#flowpath = local_flow
+endif
 
 " Vim-rooter settings
 let g:rooter_silent_chdir = 1

@@ -21,9 +21,6 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
 1. Install vim-devicon installation instruction [can be found here](https://vimawesome.com/plugin/vim-devicons). Note that because you installed the font in the last step and the third step is to make changes to the vimrc you only really need to clone the plugin to make this work.
 1. Install nerdtree-git-plugin using pathogen as per [github repo instructions](https://github.com/Xuyuanp/nerdtree-git-plugin).
-1. Install syntastic using pathogen as per [this vim awesome article](https://vimawesome.com/plugin/syntastic).
-1. Install syntastic-local-eslint from [this github repo](https://github.com/mtscout6/syntastic-local-eslint.vim).
-1. After installing syntactic you'll need to make sure that eslint is setup for it to work with js files. Install eslint with `npm i -g eslint` then if you're using create-react-app you'll also need to install their config files globally `npm i -g eslint-config-react-app` then you're gonna need all the dependencies `npm i -g eslint-plugin-import eslint-plugin-flowtype eslint-plugin-jsx-a11y eslint-plugin-react babel-eslint`.
 1. Install vim-javascript for syntax highlighting [from this github](https://github.com/pangloss/vim-javascript).
 1. Install vim-jsx for jsx syntax highlighting [from this github](https://github.com/mxw/vim-jsx).
 1. Install vim-gitgutter [from this article](https://vimawesome.com/plugin/vim-gitgutter).
@@ -44,6 +41,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
 1. Install ack from the [chocolatey repo](https://chocolatey.org/packages/ack). Note this will automatically install StrawberryPerl, to test this has worked correctly run the comman `perl` in the command line. StrawberryPerl adds things to your path variable to make this possible so if running the `perl` command gives you an inoperable command error then close your command window, open a new one and try again. If that doesn't work maybe try adding the paths StrawberryPerl added to the system path to your private path? Other than that you're on your own.
 1. Install ack.vim via pathogen the command is on [their repo](https://github.com/mileszs/ack.vim)
+1. Install ALE via pathogen, see [their github for details](https://github.com/w0rp/ale)
 
 ## ConEmu Settings
 
@@ -115,6 +113,22 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set 
 
 [This answer on SO](https://stackoverflow.com/a/1878983) explains what all the settings are in the vimrc to make all this magic happen
 
+#### Paths with regards to import statements in javascript
+
+I have included in my vimrc a motion to set the pwd to the directory of the file in the currently selected buffer, to do this you can use `,cd` this helps when you are wanting to do autocompletion with ^X^F and it also helps when you are wanting to use import-js with <Leader>j to find local modules to import. I've found it exceedingly difficult to do either of these with modules brought in with npm as the project I work on can have very deeply nested folder structures and it's not always convenient to work on the root level of the project.
+
+#### Getting Airline to look pretty
+
+I found that the airline theme mixing with the cmdr colours was a bit of a pain. The Airline theme definitely has some affect on the colours but basically I just had to choose an airline theme that was close to what I wanted and then tweak my cmdr colours until I got something I liked. What I found that sucked is that the cmdr uses the same colour for both Insert and Visual mode so I couldn't choose different colours for them but hey ho. As for the symbols needed to make airline look pretty I was able to use [this SO article answer](https://vi.stackexchange.com/questions/3359/how-do-i-fix-the-status-bar-symbols-in-the-airline-plugin) to make the changes I needed to the vimrc. I skipped the installing the appropriate fonts bit because my SauceCode Nerd Font works fine. I also deleted the first line out of every two in the vimrc lines in the stack overflow article because they were duplicates and did nothing for the config anyway.
+
+## Things I've tried that didn't work out for me
+
+I had a quick try of Ctrl+P but I found it a bit hard to get my head around and when I was able to make it do what I needed it to I found it quite slow. It's entirely possible this was my fault and lack of understanding, it might be worth revisiting it when I have more experience.
+
+I also tried EasyGrep, again I found that when I finally got it to do what I wanted it to do it was prohibitively slow. I could have spent more time figuring out what I needed to do to optimise it but then I found a post from the creator of EasyGrep who suggested Ack. This worked perfectly. I should clarify, what I wanted EasyGrep to do was search for tokens in all files in my project for this I found it was far too slow, however the basic functions mapped to the leader keys for grepping across the buffers that were open or active window were excellent, but then I could probably get then from mappings in my vimrc pretty easily.
+
+The below is no longer a problem as after using syntastic for some time I found it slowed opening and saving my files down way too much. I may have configured it wrong but none the less it just didn't help me. I found ALE and this was a much better alternative for me as it just worked out of the box.
+
 #### Setup eslint and syntastic properly for linting
 
 [Here's a blog post](https://medium.com/usevim/in-editor-linting-with-syntastic-6814122bdbec) that I worked with to try and get eslint running the create-react-app stuff was more trial and error than anything else and I'd like to see if there's a way I can do that better.
@@ -138,16 +152,3 @@ I spent bloody ages trying to get syntasic to work with the linting in my work's
 
 Whilst I was investigating all this I also found that a useful command `set noshellslash` can help Windows to understand the different slashes that are used in paths in vim. There's lots of info about problems with shell setting as they pertain to windows machines [here](https://github.com/airblade/vim-system-escape). In the end I only needed the `noshellslash`
 
-#### Paths with regards to import statements in javascript
-
-I have included in my vimrc a motion to set the pwd to the directory of the file in the currently selected buffer, to do this you can use `,cd` this helps when you are wanting to do autocompletion with ^X^F and it also helps when you are wanting to use import-js with <Leader>j to find local modules to import. I've found it exceedingly difficult to do either of these with modules brought in with npm as the project I work on can have very deeply nested folder structures and it's not always convenient to work on the root level of the project.
-
-#### Getting Airline to look pretty
-
-I found that the airline theme mixing with the cmdr colours was a bit of a pain. The Airline theme definitely has some affect on the colours but basically I just had to choose an airline theme that was close to what I wanted and then tweak my cmdr colours until I got something I liked. What I found that sucked is that the cmdr uses the same colour for both Insert and Visual mode so I couldn't choose different colours for them but hey ho. As for the symbols needed to make airline look pretty I was able to use [this SO article answer](https://vi.stackexchange.com/questions/3359/how-do-i-fix-the-status-bar-symbols-in-the-airline-plugin) to make the changes I needed to the vimrc. I skipped the installing the appropriate fonts bit because my SauceCode Nerd Font works fine. I also deleted the first line out of every two in the vimrc lines in the stack overflow article because they were duplicates and did nothing for the config anyway.
-
-## Things I've tried that didn't work out for me
-
-I had a quick try of Ctrl+P but I found it a bit hard to get my head around and when I was able to make it do what I needed it to I found it quite slow. It's entirely possible this was my fault and lack of understanding, it might be worth revisiting it when I have more experience.
-
-I also tried EasyGrep, again I found that when I finally got it to do what I wanted it to do it was prohibitively slow. I could have spent more time figuring out what I needed to do to optimise it but then I found a post from the creator of EasyGrep who suggested Ack. This worked perfectly. I should clarify, what I wanted EasyGrep to do was search for tokens in all files in my project for this I found it was far too slow, however the basic functions mapped to the leader keys for grepping across the buffers that were open or active window were excellent, but then I could probably get then from mappings in my vimrc pretty easily.
