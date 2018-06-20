@@ -42,6 +42,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install ack from the [chocolatey repo](https://chocolatey.org/packages/ack). Note this will automatically install StrawberryPerl, to test this has worked correctly run the comman `perl` in the command line. StrawberryPerl adds things to your path variable to make this possible so if running the `perl` command gives you an inoperable command error then close your command window, open a new one and try again. If that doesn't work maybe try adding the paths StrawberryPerl added to the system path to your private path? Other than that you're on your own.
 1. Install ack.vim via pathogen the command is on [their repo](https://github.com/mileszs/ack.vim)
 1. Install ALE via pathogen, see [their github for details](https://github.com/w0rp/ale)
+1. Install prettier globally `npm i prettier -g`
 
 ## ConEmu Settings
 
