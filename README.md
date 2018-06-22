@@ -23,6 +23,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install nerdtree-git-plugin using pathogen as per [github repo instructions](https://github.com/Xuyuanp/nerdtree-git-plugin).
 1. Install vim-javascript for syntax highlighting [from this github](https://github.com/pangloss/vim-javascript).
 1. Install vim-jsx for jsx syntax highlighting [from this github](https://github.com/mxw/vim-jsx).
+1. Install vim-flow for flow static type checking [from this github](https://github.com/flowtype/vim-flow). I have a script in the vimrc that will make this plugin us the version of flow installed locally to your repo so no need to install this globally although if you find a problem this may be that this script is failing.
 1. Install vim-gitgutter [from this article](https://vimawesome.com/plugin/vim-gitgutter).
 1. Install vim-airline [from this article](https://vimawesome.com/plugin/vim-airline).
 1. Install vim-airline-themes [from this article](https://vimawesome.com/plugin/vim-airline-themes).
