@@ -41,8 +41,6 @@ syntax on
 filetype plugin indent on
 
 " {{{2 Start Shell setup for windows and initialisation
-set shell=cmd
-set shellcmdflag=/c
 set noshellslash
 
 if isdirectory("D:/Projects/") 
@@ -151,9 +149,8 @@ call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 " !!! End NerdTree settings}}}2
 
 " {{{2 Start ALE settings
-let g:ale_fixers = {
-	\  'javascript': ['eslint', 'prettier']
-	\}
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier', 'eslint']
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '' 
 let g:ale_sign_warning = ''

@@ -98,6 +98,7 @@ Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set 
 
 #### General ideas
 
+- Read [this article](https://hackernoon.com/5-vim-plugins-i-cant-live-without-for-javascript-development-f7e98f98e8d5) and start installing summa dem sweet plugins!
 - Checkout [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for code completion. Looks pretty cool!
 - Making it so that the backup, undo and swap directories are created automatically. Some [ideas for this can be found here](http://vim.wikia.com/wiki/Remove_swap_and_backup_files_from_your_working_directory)
 
@@ -122,6 +123,16 @@ I have included in my vimrc a motion to set the pwd to the directory of the file
 #### Getting Airline to look pretty
 
 I found that the airline theme mixing with the cmdr colours was a bit of a pain. The Airline theme definitely has some affect on the colours but basically I just had to choose an airline theme that was close to what I wanted and then tweak my cmdr colours until I got something I liked. What I found that sucked is that the cmdr uses the same colour for both Insert and Visual mode so I couldn't choose different colours for them but hey ho. As for the symbols needed to make airline look pretty I was able to use [this SO article answer](https://vi.stackexchange.com/questions/3359/how-do-i-fix-the-status-bar-symbols-in-the-airline-plugin) to make the changes I needed to the vimrc. I skipped the installing the appropriate fonts bit because my SauceCode Nerd Font works fine. I also deleted the first line out of every two in the vimrc lines in the stack overflow article because they were duplicates and did nothing for the config anyway.
+
+#### ALE falling over and not linting or fixing
+
+I had this problem whereby it ALE just stopped working all together. I found after a while that it looked like ALE was finding the global eslint for linting but then trying to execute a local one, which was a problem if you didn't have a local one. IN the end I found that stuff I'd tried to do for syntatic below was getting in the way, particularly these line in the in the `_vimrc`:
+
+```
+set shell=cmd
+set shellcmdflag=/c
+```
+I removed these and ALE came back to life.
 
 ## Things I've tried that didn't work out for me
 
