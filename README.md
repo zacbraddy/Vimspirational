@@ -44,6 +44,8 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install ack.vim via pathogen the command is on [their repo](https://github.com/mileszs/ack.vim)
 1. Install ALE via pathogen, see [their github for details](https://github.com/w0rp/ale)
 1. Install prettier globally `npm i prettier -g`
+1. Install Vim-Autoclose via pathogen from [here](https://vimawesome.com/plugin/autoclose)
+1. Install vim-windowswap via pathogen from [here](https://github.com/wesQ3/vim-windowswap)
 
 ## ConEmu Settings
 
