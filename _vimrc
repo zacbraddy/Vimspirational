@@ -98,7 +98,7 @@ inoremap <F6> :set shellslash<CR>
 inoremap <F7> :set noshellslash<CR>
 
 " Set tab setting correctly
-nnoremap <leader>w :set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab <bar> echo "Sorry you're at work fella" <CR>
+nnoremap <leader>w :set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab <CR> :let g:ale_fixers['javascript'] = ['eslint'] <CR> :let g:ale_fixers['javascript.jsx'] = ['eslint'] <bar> echo "Sorry you're at work fella" <CR>
 nnoremap <leader>h :set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab <bar> echo "You're at home my dude!" <CR>
 
 " Change pwd to current open buffer path with ,cd
