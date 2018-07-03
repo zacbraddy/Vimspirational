@@ -154,6 +154,10 @@ call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
 " {{{2 Start ALE settings
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier', 'eslint']
+let g:ale_fixers['javascript.jsx'] = ['prettier', 'eslint']
+let g:ale_linters = {}
+let g:ale_linters['javascript'] = ['flow', 'eslint']
+let g:ale_linters['javascript.jsx'] = ['flow', 'eslint']
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '' 
 let g:ale_sign_warning = ''
