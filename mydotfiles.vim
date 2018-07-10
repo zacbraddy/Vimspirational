@@ -382,6 +382,8 @@ call plug#begin(g:vimPlugDir)
 
   Plug 'townk/vim-autoclose'
 
+  Plug 'tpope/vim-repeat'
+
 call plug#end()
 " }}}
 
