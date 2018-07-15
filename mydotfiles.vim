@@ -384,6 +384,8 @@ call plug#begin(g:vimPlugDir)
 
   Plug 'tpope/vim-repeat'
 
+  Plug 'Valloric/YouCompleteMe'
+
 call plug#end()
 " }}}
 

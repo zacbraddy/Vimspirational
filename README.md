@@ -19,10 +19,11 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
 1. Install flow globally with `npm i flow -g`
 1. Install prettier globally `npm i prettier -g`
-1. Got to [vim.org](http://vim.org/) and get the self-installing executable for vim. Install this whereever you wish but remember the path.
+1. Get the latest version of [vim with python support](https://bintray.com/micbou/generic/vim#) which you'll need for the YouCompleteMe plugin to work (I'm currently running 8.1).
 1. Put the symlinked vimrc in the `$VIM` directory and change the `g:pathToVimRc` so that it points to the `vimrc` in the folder where you pulled this repo down.
 1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your vimfiles, dead simple
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
+1. Follow the quick install instructions from the [YouCompleteMe github README](https://github.com/Valloric/YouCompleteMe#windows) you'll need to install Python, CMake and Visual Studio as part of it and then compile the executables using the the install.py with the --js-completer flag. One important distinction from the install README is that in that they compile in the vimfiles/bundle but remember as part of vim-plug we've actually installed the plugin in the vimfiles/plugged folder instead.
 
 ## ConEmu Settings
 
@@ -33,7 +34,7 @@ Features > Status bar > Show status bar | off
 Features > In-console options > Use Clink in prompt | On
 Features > Transparency > Alpha transparency > Active window transparency | Off
 Main > Main console font | SauceCodePro NF
-Main > Main console font size | 12
+Main > Main console font size | 14
 Main > Background > Background Image | [I use this image](https://wallpaperscraft.com/image/panda_art_apofiss_night_94616_1920x1080.jpg)
 Main > Background Placement | Stretch-Fill
 Main > Background Darkening | 51
@@ -73,6 +74,7 @@ ack.vim|https://github.com/mileszs/ack.vim|Ack is a code anaylsis and searching 
 ALE|https://github.com/w0rp/ale|Asynchronous Linting Engine, does what it says on the tin, tries to lint everything as you type. Thing is either I'm not using it right or this thing isn't asynchronous enough because on my work computer this slows things down a fair bit. Still gotta have something in this department because the alternative is annoying as hell so till I find a better one this is it.
 vim-autoclose|https://github.com/townk/vim-autoclose|Just a simple little thing to write a closing bracket after I've typed and opening bracket, still working this into my flow but I can work with it without it getting annoying probably 80% of the time now.
 vim-repeat|https://github.com/tpope/vim-repeat|Repeat commands from things like surround and unimpaired with the `.` instead of having to do them again. Should probably look into what other plugins support this if I'm honest because I'm sure there is more from big daddy TPope.
+YouComplete|https://github.com/Valloric/YouCompleteMe|Code completion engine, I have installed to work with javascript but you can do it with a heap of different languages.
 
 ## Custom commands and key remaps in my vimrc
 
@@ -109,8 +111,6 @@ vim-repeat|https://github.com/tpope/vim-repeat|Repeat commands from things like 
 
 #### General ideas
 
-- Read [this article](https://hackernoon.com/5-vim-plugins-i-cant-live-without-for-javascript-development-f7e98f98e8d5) and start installing summa dem sweet plugins!
-- Checkout [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for code completion. Looks pretty cool!
 - Look into ctags again and see if it's worth looking back into, I had it once but barely used it. Maybe I was too quick to judge. Only look after you've looked at YouCompleteMe because that might do everything I wanted ctags to do
 - Look into vim-import-js again, seemed like a good pacakage but I barely used it, but then that was before I started coding in JS exclusively so maybe it wil lbe more useful than I thought.
 - Would be super cool if I could get the current playing song in spotify into my airline status bar
@@ -129,3 +129,7 @@ I had a problem for a while where I was moving all my swap, undo and backup file
 #### Folding not working for javascript in the JSX files
 
 I was finding that if I loaded up a jsx file for the first time then the code folding didn't work. But if I deleted the buffer and then reloaded it then the folding appeared perfectly. I found this was a problem with these plugins not liking being lazy loaded by vim-plug so I had to have them load on startup.
+
+#### Installed a heap of plugins
+
+- I read [this article](https://hackernoon.com/5-vim-plugins-i-cant-live-without-for-javascript-development-f7e98f98e8d5) and start installed the plugins I thought were cool
