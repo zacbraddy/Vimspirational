@@ -3,7 +3,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 
 ## Table of Contents
 - [Steps to setup on Windows](#steps-to-setup-on-windows)
-- [ConEmu settings](#conemu-settings)
+- [Steps to setup on MaxOS](#steps-to-setup-on-macos)
 - [Plugins I'm using](#plugins-im-using)
 - [Custom commands and key remaps in my vimrc](#custom-commands-and-key-remaps-in-my-vimrc)
 - [Problems I'm sure I can solve but haven't yet](#problems-im-sure-i-can-solve-but-havent-yet)
@@ -20,39 +20,34 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install flow globally with `npm i flow -g`
 1. Install prettier globally `npm i prettier -g`
 1. Get the latest version of [vim with python support](https://bintray.com/micbou/generic/vim#) which you'll need for the YouCompleteMe plugin to work (I'm currently running 8.1).
-1. Put the symlinked vimrc in the `$VIM` directory and change the `g:pathToVimRc` so that it points to the `vimrc` in the folder where you pulled this repo down.
+1. Put the symlinked vimrc in the `$VIM` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down.
 1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your vimfiles, dead simple
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
 1. Follow the quick install instructions from the [YouCompleteMe github README](https://github.com/Valloric/YouCompleteMe#windows) you'll need to install Python, CMake and Visual Studio as part of it and then compile the executables using the the install.py with the --js-completer flag. One important distinction from the install README is that in that they compile in the vimfiles/bundle but remember as part of vim-plug we've actually installed the plugin in the vimfiles/plugged folder instead.
 
-## ConEmu Settings
-
-|Setting Name|Value|
----|---
-Features > Colors | Current Colour Scheme (Custom one that I made to work well with the deus airline them)
-Features > Status bar > Show status bar | off
-Features > In-console options > Use Clink in prompt | On
-Features > Transparency > Alpha transparency > Active window transparency | Off
-Main > Main console font | SauceCodePro NF
-Main > Main console font size | 14
-Main > Background > Background Image | [I use this image](https://wallpaperscraft.com/image/panda_art_apofiss_night_94616_1920x1080.jpg)
-Main > Background Placement | Stretch-Fill
-Main > Background Darkening | 51
-Main > Font Face | Consolas
-Main > Quake style > Quake style slide down turned | on
-Main > Quake style > Animation time (ms) | 300
-Main > Quake style > Appear delay | 100
-Main > Quake stlye > Disappear | 100
-Main > Size & Position > Window position (pixels) | Centered
-Main > Size & Position > Window size | Maximized 
-Main > Size & Position > Alignment > Restore to active monitor | On
-Main > Tab bar > Tabs on Bottom | On
-Main > Update > Do automatic check on | Startup
-Main > Update > Preferred release type | Stable
-Startup > Startup options > Specified named task | {Bash::Git bash}
-Startup > Environment | Added the line `set projects=<projects folder path>`
-Startup > Tasks | Added a Tools::Vim task I also set the hotkey for this task to Alt+N
-Startup > Tasks > Bash::Git bash | Set the HotKey to LCtrl+Shift+T and also set the startup Project to my projects folder and set as Default task for new console
+## Step to setup on MacOS
+1. Install [iTerm2](https://www.iterm2.com/index.html) for you console emulation
+1. To use my iTerm settings go to `Profiles > Open Profiles` once inside there click on the edit profiles. Then go to the general tab and tick on the `Load settings from a custom folder or URL` then browse to the Vimspirational repo folder so that iTerm picks up the settings form the `com.googlecode.iterm2.plist` file.
+1. If you find that your colours aren't looking great it might be that you need to download the color schemes I have. I just downloaded a library of them from here and then imported them in the `Preferences > Colors > Color Presets > Import` Option
+1. Set you own background image for iTerm if you'd like. [I use this image](https://wallpaperscraft.com/image/panda_art_apofiss_night_94616_1920x1080.jpg)
+1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
+1. Install homebrew by executing the following command in iTerm `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
+1. Install ack using `homebrew install ack`
+1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
+1. Install flow globally with `npm i flow -g`
+1. Install prettier globally `npm i prettier -g`
+1. Run the following to install vim and macvim linked to update together with hombrew:
+```
+export PATH=/usr/local/bin:$PATH
+brew update
+brew install vim && brew install macvim
+brew link macvim
+```
+1. Create a symlink between `mvim` and the `vim` command so you can just type `vim` to get it started. You can do that with this command `ln -s /usr/local/bin/mvim vim`
+1. Put the symlinked vimrc in the `$HOME/.vim` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down.
+1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your `$HOME/.vim` folder, dead simple
+1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
+1. Follow the quick install instructions from the [YouCompleteMe github README](https://github.com/Valloric/YouCompleteMe#windows) you'll need to install Python, and CMake as part of it and then compile the executables using the the install.py with the --js-completer flag. One important distinction from the install README is that in that they compile in the .vim/bundle but remember as part of vim-plug we've actually installed the plugin in the .vim/plugged folder instead.
 
 ## Plugins I'm using
 

@@ -7,6 +7,7 @@
     autocmd!
     autocmd VimEnter * echo "Jacking into the matrix..."
   augroup END
+
   " turn on filetype detection and syntax highlighting
   filetype plugin indent on
   syntax on
@@ -15,24 +16,11 @@
   let mapleader = "-"
   let maplocalleader = "="
 
-  " windows prefers noshellslash
-  set noshellslash
-
-  " Look for where I normally keep my project directories
-  if isdirectory("D:/Projects/") 
-    cd D:\Projects
+  if has("mac")
+    execute "source ./mydotfiles-macOS.vim"
+  elseif has("win32")
+    execute "source ./mydotfiles-windoze.vim"
   endif
-
-  if isdirectory("C:/Projects/") 
-    cd C:\Projects
-  endif
-
-  function! CreateDirectoryIfNotExist(path)
-    if !isdirectory(a:path)
-      call mkdir(a:path, "p", 700)
-    endif
-  endfunction
-
 " }}}
 
 " Vim Settings ------------------------------ {{{
@@ -46,14 +34,6 @@
   set shiftround
   set shiftwidth=2 
   
-  " Put all the swap files and other crap in a temp folder
-  set backupdir=$VIM/vimfiles/vimtmp/backup//
-  set directory=$VIM/vimfiles/vimtmp/swap//
-  set undodir=$VIM/vimfiles/vimtmp/undo//
-  call CreateDirectoryIfNotExist(&backupdir)
-  call CreateDirectoryIfNotExist(&directory)
-  call CreateDirectoryIfNotExist(&undodir)
-
   " Set encoding and set the font to SauceCodePro to use vimdevicons
   set encoding=utf8
   set guifont=SauceCodePro\ NF:h11
@@ -96,13 +76,6 @@
 
   " Clear highlighting on escape in normal mode
   nnoremap <esc> :noh<cr><esc>
-
-  " Set and unset shellslash - Particularly important in a windows setup
-  " because sometimes plugins prefer noshellslash but other can handle windoze
-  nnoremap <F6> :set shellslash<CR>
-  nnoremap <F7> :set noshellslash<CR>
-  inoremap <F6> :set shellslash<CR>
-  inoremap <F7> :set noshellslash<CR>
 
   " Set tab setting correctly - because at home I prefer two spaces but my
   " work insists on using 4 like animals
@@ -332,9 +305,6 @@ augroup END
   " Setup prettier options for use with Ale
   let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
 
-  " highlight clear ALEErrorSign
-  " highlight clear ALEWarningSign
-
 " }}}
 
 " Vim-Plug Settings -------------------- {{{
@@ -346,47 +316,47 @@ augroup END
 
 " Plugins ---------------------------- {{{
 
-let g:vimPlugDir = $VIM . '/vimfiles/plugged'
-call CreateDirectoryIfNotExist(g:vimPlugDir)
-call plug#begin(g:vimPlugDir)
+  call CreateDirectoryIfNotExist(g:vimPlugDir)
+  call plug#begin(g:vimPlugDir)
 
-  Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-sensible'
 
-  Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-  
-  Plug 'ryanoasis/vim-devicons'
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    
+    Plug 'ryanoasis/vim-devicons'
 
-  Plug 'airblade/vim-gitgutter'
+    Plug 'airblade/vim-gitgutter'
 
-  Plug 'tpope/vim-fugitive', { 'on': ['Gwrite', 'Gread', 'Gblame', 'Gedit', 'Gdiff', 'Gmove', 'Grep', 'Gcommit', 'Git'] }
+    Plug 'tpope/vim-fugitive', { 'on': ['Gwrite', 'Gread', 'Gblame', 'Gedit', 'Gdiff', 'Gmove', 'Grep', 'Gcommit', 'Git'] }
 
-  Plug 'tpope/vim-unimpaired'
+    Plug 'tpope/vim-unimpaired'
 
-  Plug 'pangloss/vim-javascript'
+    Plug 'pangloss/vim-javascript'
 
-  Plug 'mxw/vim-jsx'
+    Plug 'mxw/vim-jsx'
 
-  Plug 'flowtype/vim-flow'
+    Plug 'flowtype/vim-flow'
 
-  Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline'
 
-  Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-airline/vim-airline-themes'
 
-  Plug 'enricobacis/vim-airline-clock'
+    Plug 'enricobacis/vim-airline-clock'
 
-  Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-surround'
 
-  Plug 'mileszs/ack.vim', { 'on': 'Ack' }
+    Plug 'mileszs/ack.vim', { 'on': 'Ack' }
 
-  Plug 'w0rp/ale'
+    Plug 'w0rp/ale'
 
-  Plug 'townk/vim-autoclose'
+    Plug 'townk/vim-autoclose'
 
-  Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-repeat'
 
-  Plug 'Valloric/YouCompleteMe'
+    Plug 'Valloric/YouCompleteMe'
 
-call plug#end()
+  call plug#end()
+
 " }}}
 
 " Devicons Settings ------------------ {{{
