@@ -17,9 +17,9 @@
   let maplocalleader = "="
 
   if has("mac")
-    execute "source ./mydotfiles-macOS.vim"
+    execute "source " . g:pathToVimspirationalRepo . "mydotfiles-macOS.vim"
   elseif has("win32")
-    execute "source ./mydotfiles-windoze.vim"
+    execute "source " . g:pathToVimspirationalRepo . "mydotfiles-windoze.vim"
   endif
 " }}}
 

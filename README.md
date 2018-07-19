@@ -43,7 +43,7 @@ brew update
 brew install vim && brew install macvim
 brew link macvim
 ```
-1. Create a symlink between `mvim` and the `vim` command so you can just type `vim` to get it started. You can do that with this command `ln -s /usr/local/bin/mvim vim`
+1. Create a symlink between `mvim` and the `vim` command so you can just type `vim` to get it started. You can do that with this command `ln -s /usr/local/bin/mvim vim`. You can run this command whereever you want but make sure that it's in your User folder somewhere so it doesn't get blown away on startup. I chose to put it in my `.vim` folder.
 1. Put the symlinked vimrc in the `$HOME/.vim` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down.
 1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your `$HOME/.vim` folder, dead simple
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
