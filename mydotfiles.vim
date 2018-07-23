@@ -38,6 +38,11 @@
   set encoding=utf8
   set guifont=SauceCodePro\ NF:h11
 
+  " Finally I work somewhere that uses sensible defaults so I can set the tab
+  " settings and worry changing this to silly 4 spaces later with me leader
+  " keybindings if I need to
+
+  set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab 
 " }}}
 
 " Productivity commands ---------------------- {{{
