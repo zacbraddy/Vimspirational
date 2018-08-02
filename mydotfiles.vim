@@ -239,12 +239,6 @@ augroup END
 
 " vim-airline settings --------------- {{{
   
-  " Make the tabline show at the top with all the open buffers
-  let g:airline#extensions#tabline#enabled = 1
-  
-  " Make it so the tabline also shows the buffer number
-  let g:airline#extensions#tabline#buffer_nr_show = 1
-
   if !exists('g:airline_symbols')
       let g:airline_symbols = {}
   endif
@@ -312,6 +306,20 @@ augroup END
 
 " }}}
 
+" {{{ buffergator settings 
+
+  " Make the buffer window display on the right of the screen in a vertical
+  " split 
+  let g:buffergator_viewport_split_policy =  "B"
+
+  " Automatically update the buffer window when a new buffer is opened
+  let g:buffergator_autoupdate = 1
+
+  " sort buffers by their name
+  let g:buffergator_sort_regime = "basename"
+
+" }}}
+
 " Vim-Plug Settings -------------------- {{{
 
   command! PS :PlugStatus
@@ -360,6 +368,11 @@ augroup END
 
     Plug 'Valloric/YouCompleteMe'
 
+    Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
+
+    Plug 'peitalin/vim-jsx-typescript', { 'for': ['typescript'] }
+
+    Plug 'jeetsukumaran/vim-buffergator'
   call plug#end()
 
 " }}}

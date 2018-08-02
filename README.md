@@ -70,6 +70,9 @@ ALE|https://github.com/w0rp/ale|Asynchronous Linting Engine, does what it says o
 vim-autoclose|https://github.com/townk/vim-autoclose|Just a simple little thing to write a closing bracket after I've typed and opening bracket, still working this into my flow but I can work with it without it getting annoying probably 80% of the time now.
 vim-repeat|https://github.com/tpope/vim-repeat|Repeat commands from things like surround and unimpaired with the `.` instead of having to do them again. Should probably look into what other plugins support this if I'm honest because I'm sure there is more from big daddy TPope.
 YouComplete|https://github.com/Valloric/YouCompleteMe|Code completion engine, I have installed to work with javascript but you can do it with a heap of different languages.
+typescript-vim|https://github.com/leafgarland/typescript-vim|Syntax highlighting and completion for typescript.
+vim-jsx-typescript|https://github.com/peitalin/vim-jsx-typescript|Syntax highlighting and completion for JSX inside typescript
+vim-buffergator|https://github.com/jeetsukumaran/vim-buffergator|Helps with navigating between the many buffers that you inevitably have open when developing, gives a cool navigator and key bindings to go back through your recently opened buffers.
 
 ## Custom commands and key remaps in my vimrc
 
