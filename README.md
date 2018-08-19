@@ -48,6 +48,7 @@ brew link macvim
 1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your `$HOME/.vim` folder, dead simple
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
 1. Follow the quick install instructions from the [YouCompleteMe github README](https://github.com/Valloric/YouCompleteMe#windows) you'll need to install Python, and CMake as part of it and then compile the executables using the the install.py with the --js-completer flag. One important distinction from the install README is that in that they compile in the .vim/bundle but remember as part of vim-plug we've actually installed the plugin in the .vim/plugged folder instead.
+1. Copy the .zshrc file into your home directory so you get the aliases etc. that I've made
 
 ## Plugins I'm using
 
@@ -73,6 +74,7 @@ YouComplete|https://github.com/Valloric/YouCompleteMe|Code completion engine, I 
 typescript-vim|https://github.com/leafgarland/typescript-vim|Syntax highlighting and completion for typescript.
 vim-jsx-typescript|https://github.com/peitalin/vim-jsx-typescript|Syntax highlighting and completion for JSX inside typescript
 vim-buffergator|https://github.com/jeetsukumaran/vim-buffergator|Helps with navigating between the many buffers that you inevitably have open when developing, gives a cool navigator and key bindings to go back through your recently opened buffers.
+nerdtree-git-plugin|https://github.com/Xuyuanp/nerdtree-git-plugin|Shows git status icons next to files in nerd tree
 
 ## Custom commands and key remaps in my vimrc
 
@@ -100,19 +102,19 @@ vim-buffergator|https://github.com/jeetsukumaran/vim-buffergator|Helps with navi
 `<F2>`|Normal|Runs the `:NERDTreeToggle` command to open NERDTree|Less key presses to open NERDTree
 `PS`|Command|Runs the `:PlugStatus` command to check the status of plugin in vim-plug|Because less keystrokes
 `PI`|Command|Runs the `:PlugInstall` command to install plugins with vim-plug|Because less keystrokes
+`<leader>s`|Normal|Start a command that will replace all instances the word under the cursor with whatever you finish the command with i.e press `<leader>s` then type what you want to replace the word with plus a `/g` and hit enter to replace globally in the doc
+`<leader>aj` and `<leader>ak`|Normal|Move to the next or previous ALE error in the document
+
 
 ## Problems I'm sure I can solve but haven't yet
 
 - vim-rooter seems to only change the pwd after syntastic as already made it's check which means the first file you open for any project won't automatically get linted because syntastic falls over the background, every subsequent file opened doesn't have this problem because the root has already been changed. This would be a pretty big problem if you were working on two projects at the same time and flicking back and forth but as it stands this is a minor inconvenience for me so I'm leaving it as a problem to solve another day.
-
-- nertree-git-plugin was a plugin that worked with mixed results in the past but I've found that since moving to vim-plug it has stopped working altogether. Not sure which plugin's fault it is as yet, maybe later I can find out what the problem is and try and solve it. For now I'm not so bothered I have vim-gitgutter anyway. I tried everything in [this issue](https://github.com/Xuyuanp/nerdtree-git-plugin/issues/75) but to no avail as at 10/7/2018.
 
 #### General ideas
 
 - Look into ctags again and see if it's worth looking back into, I had it once but barely used it. Maybe I was too quick to judge. Only look after you've looked at YouCompleteMe because that might do everything I wanted ctags to do
 - Look into vim-import-js again, seemed like a good pacakage but I barely used it, but then that was before I started coding in JS exclusively so maybe it wil lbe more useful than I thought.
 - Would be super cool if I could get the current playing song in spotify into my airline status bar
-- I've only just discover <c-w>+<capital H,J,K,L> for changing window positions but before that I was using vim-windowswap but after finding the native functionality this just seemed overkill. If I decide later it was worth it I could reinstall it.
 - Find a plugin that closes for html tags too so I can work with JSX in a less annoying fashion too
 - Look into vim-react-snippets looks like it could save some time. For that you need Ultisnips which has a dependency on YouCompleteMe so start with YouCompleteMe
 

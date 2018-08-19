@@ -90,6 +90,8 @@
   " Change pwd to current open buffer path
   nnoremap <leader>cd : cd %:p:h<CR>:pwd<CR>
 
+  " shortcut for find and replace all instances of word under cursor
+  nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 " }}}
 
 " Javascript settings ------------------------ {{{
@@ -304,6 +306,10 @@ augroup END
   " Setup prettier options for use with Ale
   let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
 
+  " Leader key mappings for go to next and previous error
+  nmap <silent> <leader>aj :ALENext<cr>
+  nmap <silent> <leader>ak :ALEPrevious<cr>
+
 " }}}
 
 " {{{ buffergator settings 
@@ -318,6 +324,12 @@ augroup END
   " sort buffers by their name
   let g:buffergator_sort_regime = "basename"
 
+" }}}
+
+" nerd-tree-git settings {{{
+  let g:NERDTreeShowIgnoredStatus=1
+  let g:NERDTreeIndicatorMapCustom = {}
+  let g:NERDTreeIndicatorMapCustom['Ignored']='[] '
 " }}}
 
 " Vim-Plug Settings -------------------- {{{
@@ -373,6 +385,8 @@ augroup END
     Plug 'peitalin/vim-jsx-typescript', { 'for': ['typescript'] }
 
     Plug 'jeetsukumaran/vim-buffergator'
+
+    Plug 'Xuyuanp/nerdtree-git-plugin'
   call plug#end()
 
 " }}}
