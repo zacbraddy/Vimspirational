@@ -99,7 +99,7 @@ nerdtree-git-plugin|https://github.com/Xuyuanp/nerdtree-git-plugin|Shows git sta
 `<F7>`|Normal,Insert|Runs `:set noshellslash`|See above
 `<leader>w`, `<leader>h`|Normal|Sets the tab settings to 4 spaces also turns pretiier on and off|My work requires me to use 4 spaces when I'm coding but I prefer 2 so I needed a quick way to switch between the two when I'm switching between doing my own coding and works.
 `<leader>cd`|Normal|Sets the pwd to the the directory of the currently open buffer|This helps for when you are trying to use ^X^F that's what it was there for before, although now I'm using vim-rooter I wonder if I don't need this anymore....hmmm....I'll have to test this.
-`<F2>`|Normal|Runs the `:NERDTreeToggle` command to open NERDTree|Less key presses to open NERDTree
+`<F2>`, `<leader>nt`|Normal|Runs the `:NERDTreeToggle` command to open NERDTree|Less key presses to open NERDTree
 `PS`|Command|Runs the `:PlugStatus` command to check the status of plugin in vim-plug|Because less keystrokes
 `PI`|Command|Runs the `:PlugInstall` command to install plugins with vim-plug|Because less keystrokes
 `<leader>s`|Normal|Start a command that will replace all instances the word under the cursor with whatever you finish the command with i.e press `<leader>s` then type what you want to replace the word with plus a `/g` and hit enter to replace globally in the doc

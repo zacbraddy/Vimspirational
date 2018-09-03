@@ -195,6 +195,7 @@ augroup END
   let g:NERDTreeHighlightCursorline = 0
 
   nnoremap <F2> :NERDTreeToggle<cr>
+  nnoremap <leader>nt :NERDTreeToggle<cr>
 " }}}
 
 " vim-javascript settings ------------------- {{{
@@ -329,7 +330,7 @@ augroup END
 " nerd-tree-git settings {{{
   let g:NERDTreeShowIgnoredStatus=1
   let g:NERDTreeIndicatorMapCustom = {}
-  let g:NERDTreeIndicatorMapCustom['Ignored']='[] '
+  let g:NERDTreeIndicatorMapCustom['Ignored']=' '
 " }}}
 
 " Vim-Plug Settings -------------------- {{{
