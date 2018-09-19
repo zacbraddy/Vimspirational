@@ -50,6 +50,9 @@ brew link macvim
 1. Follow the quick install instructions from the [YouCompleteMe github README](https://github.com/Valloric/YouCompleteMe#windows) you'll need to install Python, and CMake as part of it and then compile the executables using the the install.py with the --js-completer flag. One important distinction from the install README is that in that they compile in the .vim/bundle but remember as part of vim-plug we've actually installed the plugin in the .vim/plugged folder instead.
 1. Copy the .zshrc file into your home directory so you get the aliases etc. that I've made
 
+----
+Currently experimenting with Hyper Terminal. To make this work get the latest of Hyper and create a symlink for .hyper.js from home to this repo's directory for convience
+
 ## Plugins I'm using
 
 |Plugin name|Link|Why?|
