@@ -109,6 +109,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias k="kubectl "
+# kill-all-docker-containers
+kadc() {
+  docker ps -q | for i in $(cat) ; do docker stop $i; docker rm $i; done
+}
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/zac.braddy/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/zac.braddy/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -116,3 +120,4 @@ if [ -f '/Users/zac.braddy/google-cloud-sdk/path.zsh.inc' ]; then source '/Users
 if [ -f '/Users/zac.braddy/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/zac.braddy/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export KUBE_EDITOR="vim"

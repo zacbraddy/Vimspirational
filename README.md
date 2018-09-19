@@ -68,7 +68,7 @@ vim-airline-themes|https://github.com/vim-airline/vim-airline-themes|A plugin to
 vim-surround|https://github.com/tpope/vim-surround|Does a little more than my little scripts that surrounds a word with quotes, this will change surrounding characters, delete them etc. Basicallty it defines some operator pending bindings that allow you to modify surrouding characters. Again I should us this more than I do.
 ack.vim|https://github.com/mileszs/ack.vim|Ack is a code anaylsis and searching tool that you can integrate into vim. This is by far the best way I've found to search and entire project for something.
 ALE|https://github.com/w0rp/ale|Asynchronous Linting Engine, does what it says on the tin, tries to lint everything as you type. Thing is either I'm not using it right or this thing isn't asynchronous enough because on my work computer this slows things down a fair bit. Still gotta have something in this department because the alternative is annoying as hell so till I find a better one this is it.
-vim-autoclose|https://github.com/townk/vim-autoclose|Just a simple little thing to write a closing bracket after I've typed and opening bracket, still working this into my flow but I can work with it without it getting annoying probably 80% of the time now.
+vim-closer|https://github.com/rstacruz/vim-closer|Just a simple little thing to write a closing bracket after I've typed and opening bracket.
 vim-repeat|https://github.com/tpope/vim-repeat|Repeat commands from things like surround and unimpaired with the `.` instead of having to do them again. Should probably look into what other plugins support this if I'm honest because I'm sure there is more from big daddy TPope.
 YouComplete|https://github.com/Valloric/YouCompleteMe|Code completion engine, I have installed to work with javascript but you can do it with a heap of different languages.
 typescript-vim|https://github.com/leafgarland/typescript-vim|Syntax highlighting and completion for typescript.
@@ -104,6 +104,8 @@ nerdtree-git-plugin|https://github.com/Xuyuanp/nerdtree-git-plugin|Shows git sta
 `PI`|Command|Runs the `:PlugInstall` command to install plugins with vim-plug|Because less keystrokes
 `<leader>s`|Normal|Start a command that will replace all instances the word under the cursor with whatever you finish the command with i.e press `<leader>s` then type what you want to replace the word with plus a `/g` and hit enter to replace globally in the doc
 `<leader>aj` and `<leader>ak`|Normal|Move to the next or previous ALE error in the document
+`<leader>rr|Normal|Replace the current line with the line that is currently in the unnamed register
+`<leader>rs`|Normal|Replace the current line with whatever is in the * register
 
 
 ## Problems I'm sure I can solve but haven't yet

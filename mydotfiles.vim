@@ -92,6 +92,9 @@
 
   " shortcut for find and replace all instances of word under cursor
   nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+  nnoremap <leader>rr Pj"_dd
+  nnoremap <leader>rs ddko<esc>"*p
 " }}}
 
 " Javascript settings ------------------------ {{{
@@ -375,7 +378,7 @@ augroup END
 
     Plug 'w0rp/ale'
 
-    Plug 'townk/vim-autoclose'
+    Plug 'rstacruz/vim-closer'
 
     Plug 'tpope/vim-repeat'
 
@@ -389,7 +392,6 @@ augroup END
 
     Plug 'Xuyuanp/nerdtree-git-plugin'
   call plug#end()
-
 " }}}
 
 " Devicons Settings ------------------ {{{
