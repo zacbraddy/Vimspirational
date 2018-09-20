@@ -52,6 +52,12 @@ brew link macvim
 
 ----
 Currently experimenting with Hyper Terminal. To make this work get the latest of Hyper and create a symlink for .hyper.js from home to this repo's directory for convience
+I've also started symlinking my .zshrc file.
+Just added aliases for git that require cowsay and lolcat, both of which can be installed via homebrew.
+Don't install Hyper via homebrew as that only installs stable and a lot of the plugins since 2 was release are only working on canary.
+Current canary for Hyperterm has a bug where key repeating isn't a thing I had to run this to fix it:
+`defaults write co.zeit.hyper ApplePressAndHoldEnabled -bool false`
+
 
 ## Plugins I'm using
 

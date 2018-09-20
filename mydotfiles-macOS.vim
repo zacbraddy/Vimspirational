@@ -13,6 +13,10 @@
 
 " {{{ Mac specific settings -------------------------
   if ($TERM == 'xterm-256color' || $TERM == 'screen-256color')
+    " Change the folded highlight to something a bit darker because native
+    " hyperterm highlight colour is way too bright
+    hi Folded ctermbg=242
+
     " Don't be tempted to do noremaps here they do have to be maps because we
     " WANT to call whatever the f keys are mapped to when they're pressed
     map <Esc>OP <F1>

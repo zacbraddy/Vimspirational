@@ -97,6 +97,14 @@
   nnoremap <leader>rs ddko<esc>"*p
 " }}}
 
+" Config Editing settings -------------------- {{{
+  augroup filetype_zsh
+    autocmd!
+    autocmd FileType zsh setlocal foldmethod=marker
+    autocmd FileType zsh setlocal foldlevelstart=0
+  augroup END
+" }}}
+
 " Javascript settings ------------------------ {{{
   augroup javascript_settings
     autocmd!
@@ -402,4 +410,3 @@ augroup END
   endif
   
 " }}}
-

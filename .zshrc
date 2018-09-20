@@ -1,75 +1,11 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/zac.braddy/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="pygmalion"
 
-# Start zac changes
-ZSH_DISABLE_COMPFIX=true
-bindkey "^D" delete-char-or-list
-bindkey "^H" backward-delete-char
-bindkey "^[3;5~" delete-char
-bindkey "^[[3~" delete-char
-bindkey "^?" backward-delete-char
-# End zac changes
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git,
   brew,
@@ -79,45 +15,49 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# Start zac changes
+# Mac Settings {{{
+  # Some stuff to make the delete key on keyboards that have them act a little more sane on mac
+  ZSH_DISABLE_COMPFIX=true
+  bindkey "^D" delete-char-or-list
+  bindkey "^H" backward-delete-char
+  bindkey "^[3;5~" delete-char
+  bindkey "^[[3~" delete-char
+  bindkey "^?" backward-delete-char
+# }}}
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Kubernetes settings {{{
+  # Alias so I only have to type k for the kubectl command
+  alias k="kubectl "
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+  # Set the kubectl standard editor
+  export KUBE_EDITOR="vim"
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+  # The next line updates PATH for the Google Cloud SDK.
+  if [ -f '/Users/zac.braddy/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/zac.braddy/google-cloud-sdk/path.zsh.inc'; fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+  # The next line enables shell command completion for gcloud.
+  if [ -f '/Users/zac.braddy/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/zac.braddy/google-cloud-sdk/completion.zsh.inc'; fi
+# }}}
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# Docker settings {{{
+  # kill-all-docker-containers
+  kadc() {
+    docker ps -q | for i in $(cat) ; do docker stop $i; docker rm $i; done
+  }
+#}}}
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Yarn settings {{{
+  # Setting up global yarn folder in Path
+  export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# }}}
 
-alias k="kubectl "
-# kill-all-docker-containers
-kadc() {
-  docker ps -q | for i in $(cat) ; do docker stop $i; docker rm $i; done
-}
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/zac.braddy/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/zac.braddy/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/zac.braddy/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/zac.braddy/google-cloud-sdk/completion.zsh.inc'; fi
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export KUBE_EDITOR="vim"
+# Git settings {{{
+  alias amazeballs="cowsay -n -r | lolcat"
+  alias gs="git status | amazeballs"
+  alias ga="git add ."
+  alias gc="git commit"
+  alias gp="git push | amazeballs"
+  alias gd="git diff"
+  alias gr="git reset"
+# }}}
