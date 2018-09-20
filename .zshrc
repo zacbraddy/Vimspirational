@@ -57,7 +57,7 @@ source $ZSH/oh-my-zsh.sh
   alias gs="git status | amazeballs"
   alias ga="git add ."
   alias gc="git commit"
-  alias gp="git push | amazeballs"
+  alias gp="git push && echo \"Puuuuuuusssshhhheedddd\" && amazeballs"
   alias gd="git diff"
   alias gr="git reset"
 # }}}
