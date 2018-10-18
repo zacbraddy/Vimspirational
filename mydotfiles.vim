@@ -344,6 +344,11 @@ augroup END
   let g:NERDTreeIndicatorMapCustom['Ignored']=' '
 " }}}
 
+" Neoplete settings ------- {{{
+  let g:deoplete#enable_at_startup = 1
+  let g:python3_host_prog = '/usr/local/bin/python3'
+" }}}
+
 " Vim-Plug Settings -------------------- {{{
 
   command! PS :PlugStatus
@@ -364,7 +369,7 @@ augroup END
 
     Plug 'airblade/vim-gitgutter'
 
-    Plug 'tpope/vim-fugitive', { 'on': ['Gwrite', 'Gread', 'Gblame', 'Gedit', 'Gdiff', 'Gmove', 'Grep', 'Gcommit', 'Git'] }
+    Plug 'tpope/vim-fugitive'
 
     Plug 'tpope/vim-unimpaired'
 
@@ -390,8 +395,6 @@ augroup END
 
     Plug 'tpope/vim-repeat'
 
-    Plug 'Valloric/YouCompleteMe'
-
     Plug 'leafgarland/typescript-vim', { 'for': ['typescript'] }
 
     Plug 'peitalin/vim-jsx-typescript', { 'for': ['typescript'] }
@@ -399,6 +402,19 @@ augroup END
     Plug 'jeetsukumaran/vim-buffergator'
 
     Plug 'Xuyuanp/nerdtree-git-plugin'
+
+    Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart'] }
+
+    Plug 'idanarye/vim-merginal'
+
+    " Plugins required for Neoplete -- {{{
+    Plug 'Shougo/deoplete.nvim'
+    " Not that this plugin requires a few extra steps for setup, refer to git
+    " repo for details
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    " }}}
+    
   call plug#end()
 " }}}
 

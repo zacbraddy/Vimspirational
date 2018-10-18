@@ -61,3 +61,5 @@ source $ZSH/oh-my-zsh.sh
   alias gd="git diff"
   alias gr="git reset | amazeballs"
 # }}}
+
+export PATH="/Users/zac.braddy/Projects/flutter/bin:$PATH"
