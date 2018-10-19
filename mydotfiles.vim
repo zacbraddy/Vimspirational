@@ -344,7 +344,7 @@ augroup END
   let g:NERDTreeIndicatorMapCustom['Ignored']=' '
 " }}}
 
-" Neoplete settings ------- {{{
+" Deoplete settings ------- {{{
   let g:deoplete#enable_at_startup = 1
   let g:python3_host_prog = '/usr/local/bin/python3'
 " }}}
@@ -407,7 +407,7 @@ augroup END
 
     Plug 'idanarye/vim-merginal'
 
-    " Plugins required for Neoplete -- {{{
+    " Plugins required for Deoplete -- {{{
     Plug 'Shougo/deoplete.nvim'
     " Not that this plugin requires a few extra steps for setup, refer to git
     " repo for details

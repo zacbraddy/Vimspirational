@@ -149,6 +149,7 @@ module.exports = {
     'hyper-spotify',
     'hyperminimal',
     'hyper-search',
+    'hyperpower',
   ],
 
   // in development, you can create a directory under

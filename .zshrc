@@ -52,8 +52,13 @@ source $ZSH/oh-my-zsh.sh
   export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # }}}
 
+# Node settings {{{
+  # Setting up global yarn folder in Path
+  export PATH="/usr/local/opt/node@8/bin:$PATH"
+# }}}
+
 # Git settings {{{
-  alias amazeballs="cowsay -n -r | lolcat"
+  alias amazeballs="cowsay -n -r | lolcatjs"
   alias gs="git status | amazeballs"
   alias ga="git add ."
   alias gc="git commit"
