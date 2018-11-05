@@ -8,10 +8,6 @@
     autocmd VimEnter * echo "Jacking into the matrix..."
   augroup END
 
-  " turn on filetype detection and syntax highlighting
-  filetype plugin indent on
-  syntax on
-
   " Map leader key
   let mapleader = "-"
   let maplocalleader = "="
@@ -24,6 +20,11 @@
 " }}}
 
 " Vim Settings ------------------------------ {{{
+
+  " turn on filetype detection and syntax highlighting
+  filetype plugin indent on
+  syntax on
+
   " Turn on line numbers
   set number
 
@@ -43,6 +44,23 @@
   " keybindings if I need to
 
   set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab 
+
+  " Show keystrokes made or incomplete motions at the bottom right
+  set showcmd
+
+  " Make it so that you don't have to save changes if there are unwritten
+  " changes in a buffer and you just want to open another buffer
+  set hidden
+
+  " Make it so that the search finds as I type. Make it case insensitive. Make
+  " it case sensitive if I type a capital though
+  set incsearch
+  set ignorecase
+  set smartcase
+  
+  " Turn on persistent undo history
+  set undofile
+
 " }}}
 
 " Productivity commands ---------------------- {{{
@@ -205,6 +223,8 @@ augroup END
   " scheme makes it hard to see with a highlight
   let g:NERDTreeHighlightCursorline = 0
 
+  let g:NERDTreeQuitOnOpen = 1
+
   nnoremap <F2> :NERDTreeToggle<cr>
   nnoremap <leader>nt :NERDTreeToggle<cr>
 " }}}
@@ -349,6 +369,16 @@ augroup END
   let g:python3_host_prog = '/usr/local/bin/python3'
 " }}}
 
+" Ctrl-P settings ------- {{{
+  set runtimepath^=~/.vim/plugged/ctrlp.vim
+
+  let g:ctrlp_cache_dir = $HOME . '/.vim/.cache/ctrlp'
+  if executable('ag')
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  endif
+  let g:ctrlp_show_hidden = 1
+" }}}
+
 " Vim-Plug Settings -------------------- {{{
 
   command! PS :PlugStatus
@@ -406,6 +436,8 @@ augroup END
     Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart'] }
 
     Plug 'idanarye/vim-merginal'
+
+    Plug 'ctrlpvim/ctrlp.vim'
 
     " Plugins required for Neoplete -- {{{
     Plug 'Shougo/deoplete.nvim'

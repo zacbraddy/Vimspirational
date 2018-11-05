@@ -128,6 +128,11 @@ module.exports = {
     hypercwd: {
       initialWorkingDirectory: '~/Projects',
     },
+
+    hyperspotify: {
+      position: 'bottom',
+      margin: 'double',
+    },
   },
 
   // a list of plugins to fetch and install from npm
@@ -149,6 +154,7 @@ module.exports = {
     'hyper-spotify',
     'hyperminimal',
     'hyper-search',
+    'hyperpower',
   ],
 
   // in development, you can create a directory under
