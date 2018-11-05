@@ -58,7 +58,7 @@ source $ZSH/oh-my-zsh.sh
 # }}}
 
 # Git settings {{{
-  alias amazeballs="cowsay -n -r | lolcatjs"
+  alias amazeballs="cowsay -n -r | lolcat"
   alias gs="git status | amazeballs"
   alias ga="git add ."
   alias gc="git commit"
