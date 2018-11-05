@@ -26,16 +26,15 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Follow the quick install instructions from the [YouCompleteMe github README](https://github.com/Valloric/YouCompleteMe#windows) you'll need to install Python, CMake and Visual Studio as part of it and then compile the executables using the the install.py with the --js-completer flag. One important distinction from the install README is that in that they compile in the vimfiles/bundle but remember as part of vim-plug we've actually installed the plugin in the vimfiles/plugged folder instead.
 
 ## Step to setup on MacOS
-1. Install [iTerm2](https://www.iterm2.com/index.html) for you console emulation
-1. To use my iTerm settings go to `Profiles > Open Profiles` once inside there click on the edit profiles. Then go to the general tab and tick on the `Load settings from a custom folder or URL` then browse to the Vimspirational repo folder so that iTerm picks up the settings form the `com.googlecode.iterm2.plist` file.
-1. If you find that your colours aren't looking great it might be that you need to download the color schemes I have. I just downloaded a library of them from here and then imported them in the `Preferences > Colors > Color Presets > Import` Option
-1. Set you own background image for iTerm if you'd like. [I use this image](https://wallpaperscraft.com/image/panda_art_apofiss_night_94616_1920x1080.jpg)
+1. Install Hyper Terminal from [here](https://hyper.is/). Installing off that website at the time of writing this installs canary which is what I prefer. It gives the latest features at the potential cost of stability but I haven't had any problems with stability so... Do not install via homebrew otherwise it will install stable which at the moment has problems for me.
+1. Current canary has a problem where when you hold down a button it doesn't repeat the keypress so to fix that run this: `defaults write co.zeit.hyper ApplePressAndHoldEnabled -bool false`
+1. Using terminal (NOT HYPERTERM) delete `~/.hyper.js` and symlink the hyper dot files from this repo using something like `ln -s ~/Projects/Vimspirational/.hyper.js ~/.hyper.js`
+1. Install OhMyZsh with this script `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+1. Symlink the .zshrc files that are in the Vimspirational repo `ln -s ~/Projects/Vimspirational/.zshrc ~/.zshrc`
 1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
-1. Install homebrew by executing the following command in iTerm `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
-1. Install ack using `homebrew install ack`
-1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
-1. Install flow globally with `npm i flow -g`
-1. Install prettier globally `npm i prettier -g`
+1. Install homebrew by executing the following command in hyper `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
+1. Install some requirements for plugins etc using `homebrew install ack node@8 yarn python3`
+1. For deoplete to work you have to install the neovim module into your python install so run `pip3 install neovim`
 1. Run the following to install vim and macvim linked to update together with hombrew:
 ```
 export PATH=/usr/local/bin:$PATH
@@ -44,20 +43,11 @@ brew install vim && brew install macvim
 brew link macvim
 ```
 1. Create a symlink between `mvim` and the `vim` command so you can just type `vim` to get it started. You can do that with this command `ln -s /usr/local/bin/mvim vim`. You can run this command whereever you want but make sure that it's in your User folder somewhere so it doesn't get blown away on startup. I chose to put it in my `.vim` folder.
-1. Put the symlinked vimrc in the `$HOME/.vim` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down.
+1. Put the `_vimrc` file in the `$HOME` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down. Also change the other 
 1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your `$HOME/.vim` folder, dead simple
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
-1. Follow the quick install instructions from the [YouCompleteMe github README](https://github.com/Valloric/YouCompleteMe#windows) you'll need to install Python, and CMake as part of it and then compile the executables using the the install.py with the --js-completer flag. One important distinction from the install README is that in that they compile in the .vim/bundle but remember as part of vim-plug we've actually installed the plugin in the .vim/plugged folder instead.
-1. Copy the .zshrc file into your home directory so you get the aliases etc. that I've made
-
-----
-Currently experimenting with Hyper Terminal. To make this work get the latest of Hyper and create a symlink for .hyper.js from home to this repo's directory for convience
-I've also started symlinking my .zshrc file.
-Just added aliases for git that require cowsay and lolcat, both of which can be installed via homebrew.
-Don't install Hyper via homebrew as that only installs stable and a lot of the plugins since 2 was release are only working on canary.
-Current canary for Hyperterm has a bug where key repeating isn't a thing I had to run this to fix it:
-`defaults write co.zeit.hyper ApplePressAndHoldEnabled -bool false`
-
+1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
+1. Install npm packages globally with `npm i flow prettier cowsay lolcatjs -g`
 
 ## Plugins I'm using
 
@@ -79,11 +69,12 @@ ack.vim|https://github.com/mileszs/ack.vim|Ack is a code anaylsis and searching 
 ALE|https://github.com/w0rp/ale|Asynchronous Linting Engine, does what it says on the tin, tries to lint everything as you type. Thing is either I'm not using it right or this thing isn't asynchronous enough because on my work computer this slows things down a fair bit. Still gotta have something in this department because the alternative is annoying as hell so till I find a better one this is it.
 vim-closer|https://github.com/rstacruz/vim-closer|Just a simple little thing to write a closing bracket after I've typed and opening bracket.
 vim-repeat|https://github.com/tpope/vim-repeat|Repeat commands from things like surround and unimpaired with the `.` instead of having to do them again. Should probably look into what other plugins support this if I'm honest because I'm sure there is more from big daddy TPope.
-YouComplete|https://github.com/Valloric/YouCompleteMe|Code completion engine, I have installed to work with javascript but you can do it with a heap of different languages.
+Deoplete|https://github.com/Shougo/deoplete.nvim|Completion engine that will give you helpful completions for all types of things Note (there are few plugins required for this to work which are folded into the dot files for vim
 typescript-vim|https://github.com/leafgarland/typescript-vim|Syntax highlighting and completion for typescript.
 vim-jsx-typescript|https://github.com/peitalin/vim-jsx-typescript|Syntax highlighting and completion for JSX inside typescript
 vim-buffergator|https://github.com/jeetsukumaran/vim-buffergator|Helps with navigating between the many buffers that you inevitably have open when developing, gives a cool navigator and key bindings to go back through your recently opened buffers.
 nerdtree-git-plugin|https://github.com/Xuyuanp/nerdtree-git-plugin|Shows git status icons next to files in nerd tree
+vim-merginal|https://github.com/idanarye/vim-merginal|A tool to help navigate between git branches without leaving vim which I should use a lot more than I do
 
 ## Custom commands and key remaps in my vimrc
 
@@ -117,15 +108,19 @@ nerdtree-git-plugin|https://github.com/Xuyuanp/nerdtree-git-plugin|Shows git sta
 `<leader>rs`|Normal|Replace the current line with whatever is in the * register
 
 
+## Custom commands and key remaps in my zshrc
+
+|Command or Key remap|Mode[filetype]|What it does|Why?|
+---|---|---|---
+`k`|alias|Does `kubectl` so I don't have to type as much
+`kadc`|alias|Kill All Docker Containers because sometimes I have latent containers running that conflict and I don't want to have to close them all manually
+`gs`, `ga`, `gc`, `gp`, `gd`, `gr`|alias|Shortcuts for `git status` `git add .` `git commit` `git push` `git diff` and `git reset` with cowsay and lolcat goodness for the status
+
 ## Problems I'm sure I can solve but haven't yet
 
-- vim-rooter seems to only change the pwd after syntastic as already made it's check which means the first file you open for any project won't automatically get linted because syntastic falls over the background, every subsequent file opened doesn't have this problem because the root has already been changed. This would be a pretty big problem if you were working on two projects at the same time and flicking back and forth but as it stands this is a minor inconvenience for me so I'm leaving it as a problem to solve another day.
 
 #### General ideas
 
-- Look into ctags again and see if it's worth looking back into, I had it once but barely used it. Maybe I was too quick to judge. Only look after you've looked at YouCompleteMe because that might do everything I wanted ctags to do
-- Look into vim-import-js again, seemed like a good pacakage but I barely used it, but then that was before I started coding in JS exclusively so maybe it wil lbe more useful than I thought.
-- Would be super cool if I could get the current playing song in spotify into my airline status bar
 - Find a plugin that closes for html tags too so I can work with JSX in a less annoying fashion too
 - Look into vim-react-snippets looks like it could save some time. For that you need Ultisnips which has a dependency on YouCompleteMe so start with YouCompleteMe
 

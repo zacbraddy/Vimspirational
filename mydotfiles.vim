@@ -364,7 +364,7 @@ augroup END
   let g:NERDTreeIndicatorMapCustom['Ignored']=' '
 " }}}
 
-" Neoplete settings ------- {{{
+" Deoplete settings ------- {{{
   let g:deoplete#enable_at_startup = 1
   let g:python3_host_prog = '/usr/local/bin/python3'
 " }}}
@@ -440,11 +440,13 @@ augroup END
     Plug 'ctrlpvim/ctrlp.vim'
 
     " Plugins required for Neoplete -- {{{
-    Plug 'Shougo/deoplete.nvim'
-    " Not that this plugin requires a few extra steps for setup, refer to git
-    " repo for details
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
+
+      Plug 'Shougo/deoplete.nvim'
+      " Not that this plugin requires a few extra steps for setup, refer to git
+      " repo for details
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
+
     " }}}
     
   call plug#end()
