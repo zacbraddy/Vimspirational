@@ -75,6 +75,7 @@ vim-jsx-typescript|https://github.com/peitalin/vim-jsx-typescript|Syntax highlig
 vim-buffergator|https://github.com/jeetsukumaran/vim-buffergator|Helps with navigating between the many buffers that you inevitably have open when developing, gives a cool navigator and key bindings to go back through your recently opened buffers.
 nerdtree-git-plugin|https://github.com/Xuyuanp/nerdtree-git-plugin|Shows git status icons next to files in nerd tree
 vim-merginal|https://github.com/idanarye/vim-merginal|A tool to help navigate between git branches without leaving vim which I should use a lot more than I do
+ctrl-p|https://github.com/kien/ctrlp.vim|Fuzzy finder for files in the current working directory also you can navigate between buffers and recent files. Pretty awesome, just have to remember to use it :P
 
 ## Custom commands and key remaps in my vimrc
 
@@ -106,6 +107,8 @@ vim-merginal|https://github.com/idanarye/vim-merginal|A tool to help navigate be
 `<leader>aj` and `<leader>ak`|Normal|Move to the next or previous ALE error in the document
 `<leader>rr|Normal|Replace the current line with the line that is currently in the unnamed register
 `<leader>rs`|Normal|Replace the current line with whatever is in the * register
+`<leader>y` `<leader>d`|Normal, Visual|Yank or delete into the star register in less keystrokes
+`<leader>p` `<leader>P`|Normal, Visual|Put out of the * register in less keystrokes
 
 
 ## Custom commands and key remaps in my zshrc

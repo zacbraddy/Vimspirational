@@ -9,7 +9,7 @@
   augroup END
 
   " Map leader key
-  let mapleader = "-"
+  let mapleader = "\<Space>"
   let maplocalleader = "="
 
   if has("mac")
@@ -61,6 +61,10 @@
   " Turn on persistent undo history
   set undofile
 
+  " Make it so I can't accidentally dump out of vim in my brain goes back to
+  " my windows days
+  map <c-z> <Nop> 
+
 " }}}
 
 " Productivity commands ---------------------- {{{
@@ -111,8 +115,19 @@
   " shortcut for find and replace all instances of word under cursor
   nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
+  " Replace line with something else
   nnoremap <leader>rr Pj"_dd
   nnoremap <leader>rs ddko<esc>"*p
+
+  " * register helpers
+  vmap <Leader>y "*y
+  vmap <Leader>d "*d
+  nmap <Leader>y "*y
+  nmap <Leader>d "*d
+  nmap <Leader>p "*p
+  nmap <Leader>P "*P
+  vmap <Leader>p "*p
+  vmap <Leader>P "*P
 " }}}
 
 " Config Editing settings -------------------- {{{
