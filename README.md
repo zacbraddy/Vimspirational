@@ -33,7 +33,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Symlink the .zshrc files that are in the Vimspirational repo `ln -s ~/Projects/Vimspirational/.zshrc ~/.zshrc`
 1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
 1. Install homebrew by executing the following command in hyper `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
-1. Install some requirements for plugins etc using `homebrew install ack node@8 yarn python3`
+1. Install some requirements for plugins etc using `homebrew install ack node@8 yarn python3 kubernetes-cli kubectx`
 1. For deoplete to work you have to install the neovim module into your python install so run `pip3 install neovim`
 1. Run the following to install vim and macvim linked to update together with hombrew:
 ```
@@ -116,6 +116,8 @@ ctrl-p|https://github.com/kien/ctrlp.vim|Fuzzy finder for files in the current w
 |Command or Key remap|Mode[filetype]|What it does|Why?|
 ---|---|---|---
 `k`|alias|Does `kubectl` so I don't have to type as much
+`kb`|alias|Does `kubens` so I don't have to type as much
+`kc`|alias|Does `kubectx` so I don't have to type as much
 `kadc`|alias|Kill All Docker Containers because sometimes I have latent containers running that conflict and I don't want to have to close them all manually
 `gs`, `ga`, `gc`, `gp`, `gd`, `gr`|alias|Shortcuts for `git status` `git add .` `git commit` `git push` `git diff` and `git reset` with cowsay and lolcat goodness for the status
 

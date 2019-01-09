@@ -79,6 +79,8 @@
   " Exit insert/visual mode easier
   inoremap jk <esc>
   vnoremap jk <esc>
+  inoremap JK <esc>
+  vnoremap JK <esc>
 
   " Cool parentheses operator pending mappings
   onoremap in( :<c-u>normal! f(vi(<cr>

@@ -27,8 +27,10 @@ source $ZSH/oh-my-zsh.sh
 # }}}
 
 # Kubernetes settings {{{
-  # Alias so I only have to type k for the kubectl command
+  # Alias so I only have to type k for the kubectl command and shorten other kubernetes tool commands
   alias k="kubectl "
+  alias kb="kubens "
+  alias kc="kubectx "
 
   # Set the kubectl standard editor
   export KUBE_EDITOR="vim"
