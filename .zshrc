@@ -10,7 +10,8 @@ plugins=(
   git,
   brew,
   npm,
-  osx
+  osx,
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -31,6 +32,8 @@ source $ZSH/oh-my-zsh.sh
   alias k="kubectl "
   alias kb="kubens "
   alias kc="kubectx "
+
+  kb dev-quoll
 
   # Set the kubectl standard editor
   export KUBE_EDITOR="vim"
@@ -60,13 +63,23 @@ source $ZSH/oh-my-zsh.sh
 # }}}
 
 # Git settings {{{
-  alias amazeballs="cowsay -n -r | lolcat"
+  alias amazeballs="cowsay -n | lolcat"
   alias gs="git status | amazeballs"
   alias ga="git add ."
   alias gc="git commit"
   alias gp="git push"
   alias gd="git diff"
   alias gr="git reset | amazeballs"
+  alias gb="grecent"
 # }}}
 
+# Add flutter to path (although this assumes that flutter is install in my projects folder which it isn't anymore so might need changing
 export PATH="/Users/zac.braddy/Projects/flutter/bin:$PATH"
+
+# Don't use the native ruby that comes with osx like a chump use the one you installed with brew
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Make it so that ruby gems get installed and used from within my home directory instead of where every else that crazy thing stores them
+export GEM_HOME=$HOME/gems
+export PATH=$HOME/gems/bin:$PATH
+export PATH="/usr/local/opt/node@10/bin:$PATH"

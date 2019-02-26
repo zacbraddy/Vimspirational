@@ -79,8 +79,6 @@
   " Exit insert/visual mode easier
   inoremap jk <esc>
   vnoremap jk <esc>
-  inoremap JK <esc>
-  vnoremap JK <esc>
 
   " Cool parentheses operator pending mappings
   onoremap in( :<c-u>normal! f(vi(<cr>
@@ -138,6 +136,61 @@
     autocmd FileType zsh setlocal foldmethod=marker
     autocmd FileType zsh setlocal foldlevelstart=0
   augroup END
+" }}}
+
+" Stop repeating movement keys -------------------- {{{
+  let g:keys_to_disable_if_not_preceded_by_count = ["j", "k", "l", "h", "w", "e", "b"]
+  let g:lastmove = 1
+  function! DisableIfNonCounted(move) range
+      if g:lastmove != a:move
+          let g:lastmove = a:move
+          return a:move
+      else
+          if v:count
+              let g:lastmove = a:move
+              return a:move
+          else
+              echoerr "Don't be noob!"
+              return ""
+          endif
+      endif
+      let g:lastmove = a:move
+  endfunction  
+  
+  function! SetDisablingOfBasicMotionsIfNonCounted(on)
+      let keys_to_disable = get(g:, "keys_to_disable_if_not_preceded_by_count", ["j", "k", "l", "h"])
+      if a:on
+          for key in keys_to_disable
+              execute "noremap <expr> <silent> " . key . " DisableIfNonCounted('" . key . "')"
+          endfor
+          let g:keys_to_disable_if_not_preceded_by_count = keys_to_disable
+          let g:is_non_counted_basic_motions_disabled = 1
+      else
+          for key in keys_to_disable
+              try
+                  execute "unmap " . key
+              catch /E31:/
+              endtry
+          endfor
+          let g:is_non_counted_basic_motions_disabled = 0
+      endif
+  endfunction
+
+  function! ToggleDisablingOfBasicMotionsIfNonCounted()
+      let is_disabled = get(g:, "is_non_counted_basic_motions_disabled", 0)
+      if is_disabled
+          call SetDisablingOfBasicMotionsIfNonCounted(0)
+      else
+          call SetDisablingOfBasicMotionsIfNonCounted(1)
+      endif
+  endfunction
+
+  command! ToggleDisablingOfNonCountedBasicMotions :call ToggleDisablingOfBasicMotionsIfNonCounted()
+  command! DisableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(1)
+  command! EnableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(0)
+
+  DisableNonCountedBasicMotions
+
 " }}}
 
 " Javascript settings ------------------------ {{{
@@ -241,6 +294,11 @@ augroup END
   let g:NERDTreeHighlightCursorline = 0
 
   let g:NERDTreeQuitOnOpen = 1
+
+  " enable line numbers
+  let NERDTreeShowLineNumbers=1
+  " make sure relative line numbers are used
+  autocmd FileType nerdtree setlocal relativenumber
 
   nnoremap <F2> :NERDTreeToggle<cr>
   nnoremap <leader>nt :NERDTreeToggle<cr>
@@ -354,6 +412,7 @@ augroup END
 
   " Setup prettier options for use with Ale
   let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
+  let g:ale_javascript_prettier_use_local_config = 1
 
   " Leader key mappings for go to next and previous error
   nmap <silent> <leader>aj :ALENext<cr>
@@ -455,6 +514,8 @@ augroup END
     Plug 'idanarye/vim-merginal'
 
     Plug 'ctrlpvim/ctrlp.vim'
+
+    Plug 'mustache/vim-mustache-handlebars'
 
     " Plugins required for Neoplete -- {{{
 

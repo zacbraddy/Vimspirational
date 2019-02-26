@@ -33,7 +33,7 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Symlink the .zshrc files that are in the Vimspirational repo `ln -s ~/Projects/Vimspirational/.zshrc ~/.zshrc`
 1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
 1. Install homebrew by executing the following command in hyper `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
-1. Install some requirements for plugins etc using `homebrew install ack node@8 yarn python3 kubernetes-cli kubectx`
+1. Install some requirements for plugins etc using `brew install ack node@8 yarn python3 kubernetes-cli kubectx the_silver_searcher`
 1. For deoplete to work you have to install the neovim module into your python install so run `pip3 install neovim`
 1. Run the following to install vim and macvim linked to update together with hombrew:
 ```
@@ -47,7 +47,7 @@ brew link macvim
 1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your `$HOME/.vim` folder, dead simple
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
 1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
-1. Install npm packages globally with `npm i flow prettier cowsay lolcatjs -g`
+1. Install npm packages globally with `npm i flow prettier cowsay lolcatjs grecent -g`
 
 ## Plugins I'm using
 
