@@ -138,61 +138,6 @@
   augroup END
 " }}}
 
-" Stop repeating movement keys -------------------- {{{
-  let g:keys_to_disable_if_not_preceded_by_count = ["j", "k", "l", "h", "w", "e", "b"]
-  let g:lastmove = 1
-  function! DisableIfNonCounted(move) range
-      if g:lastmove != a:move
-          let g:lastmove = a:move
-          return a:move
-      else
-          if v:count
-              let g:lastmove = a:move
-              return a:move
-          else
-              echoerr "Don't be noob!"
-              return ""
-          endif
-      endif
-      let g:lastmove = a:move
-  endfunction  
-  
-  function! SetDisablingOfBasicMotionsIfNonCounted(on)
-      let keys_to_disable = get(g:, "keys_to_disable_if_not_preceded_by_count", ["j", "k", "l", "h"])
-      if a:on
-          for key in keys_to_disable
-              execute "noremap <expr> <silent> " . key . " DisableIfNonCounted('" . key . "')"
-          endfor
-          let g:keys_to_disable_if_not_preceded_by_count = keys_to_disable
-          let g:is_non_counted_basic_motions_disabled = 1
-      else
-          for key in keys_to_disable
-              try
-                  execute "unmap " . key
-              catch /E31:/
-              endtry
-          endfor
-          let g:is_non_counted_basic_motions_disabled = 0
-      endif
-  endfunction
-
-  function! ToggleDisablingOfBasicMotionsIfNonCounted()
-      let is_disabled = get(g:, "is_non_counted_basic_motions_disabled", 0)
-      if is_disabled
-          call SetDisablingOfBasicMotionsIfNonCounted(0)
-      else
-          call SetDisablingOfBasicMotionsIfNonCounted(1)
-      endif
-  endfunction
-
-  command! ToggleDisablingOfNonCountedBasicMotions :call ToggleDisablingOfBasicMotionsIfNonCounted()
-  command! DisableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(1)
-  command! EnableNonCountedBasicMotions :call SetDisablingOfBasicMotionsIfNonCounted(0)
-
-  DisableNonCountedBasicMotions
-
-" }}}
-
 " Javascript settings ------------------------ {{{
   augroup javascript_settings
     autocmd!
@@ -209,6 +154,27 @@
     autocmd FileType javascript nnoremap <buffer> <localleader>u :s/\/\///<cr>
   augroup END
 
+" }}}
+
+" Python settings {{{
+  " Settings for python files
+  au BufNewFile,BufRead *.py; 
+      \ set tabstop=4
+      \ set softtabstop=4
+      \ set shiftwidth=4
+      \ set textwidth=79
+      \ set expandtab
+      \ set autoindent
+      \ set fileformat=unix
+
+  " Show whitespace that shouldn't be there
+  highlight BadWhitespace ctermbg=red guibg=red
+  au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+  let python_highlight_all=1
+
+  " Save and run the python program in the current buffer
+  autocmd FileType python nnoremap <buffer> <leader>r :w<CR>:vert ter python3 "%"<CR>
 " }}}
 
 " Abbreviations --------------------- {{{
@@ -411,7 +377,7 @@ augroup END
   let g:ale_completion_enabled = 1
 
   " Setup prettier options for use with Ale
-  let g:ale_javascript_prettier_options = '--single-quote --trailing-comma all'
+  let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
   let g:ale_javascript_prettier_use_local_config = 1
 
   " Leader key mappings for go to next and previous error
@@ -453,6 +419,12 @@ augroup END
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   endif
   let g:ctrlp_show_hidden = 1
+" }}}
+
+" Itchy settings ------- {{{
+  let g:ctrlp_reuse_window = 'Scratch'
+  nmap <Leader>gs <Plug>(itchy-open-scratch)
+  vmap <Leader>gs <Plug>(itchy-open-scratch)
 " }}}
 
 " Vim-Plug Settings -------------------- {{{
@@ -516,6 +488,12 @@ augroup END
     Plug 'ctrlpvim/ctrlp.vim'
 
     Plug 'mustache/vim-mustache-handlebars'
+
+    Plug 'vim-scripts/indentpython.vim', { 'for': ['python'] }
+
+    Plug 'nvie/vim-flake8', { 'for': ['python'] }
+
+    Plug 'idbrii/itchy.vim'
 
     " Plugins required for Neoplete -- {{{
 

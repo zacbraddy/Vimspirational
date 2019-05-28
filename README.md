@@ -76,6 +76,9 @@ vim-buffergator|https://github.com/jeetsukumaran/vim-buffergator|Helps with navi
 nerdtree-git-plugin|https://github.com/Xuyuanp/nerdtree-git-plugin|Shows git status icons next to files in nerd tree
 vim-merginal|https://github.com/idanarye/vim-merginal|A tool to help navigate between git branches without leaving vim which I should use a lot more than I do
 ctrl-p|https://github.com/kien/ctrlp.vim|Fuzzy finder for files in the current working directory also you can navigate between buffers and recent files. Pretty awesome, just have to remember to use it :P
+indentPython|https://github.com/vim-scripts/indentpython.vim|I....I mean, come on. It does proper indenting for python right?
+vim-flake8|https://github.com/nvie/vim-flake8|Does syntax checking etc. for python
+itchy|https://github.com/idbrii/itchy.vim|A plugin to help easily make scratch buffers
 
 ## Custom commands and key remaps in my vimrc
 
@@ -109,6 +112,7 @@ ctrl-p|https://github.com/kien/ctrlp.vim|Fuzzy finder for files in the current w
 `<leader>rs`|Normal|Replace the current line with whatever is in the * register
 `<leader>y` `<leader>d`|Normal, Visual|Yank or delete into the star register in less keystrokes
 `<leader>p` `<leader>P`|Normal, Visual|Put out of the * register in less keystrokes
+`<leader>gs`|Normal, Visual|Open a scratch buffer
 
 
 ## Custom commands and key remaps in my zshrc
