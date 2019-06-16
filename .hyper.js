@@ -133,6 +133,10 @@ module.exports = {
       position: 'bottom',
       margin: 'double',
     },
+    modifierKeys: {
+      altIsMeta: true,
+    },
+    macOptionSelectionMode: 'force',
   },
 
   // a list of plugins to fetch and install from npm
@@ -163,6 +167,6 @@ module.exports = {
 
   keymaps: {
     // Example
-    // 'window:devtools': 'cmd+alt+o',
+    // 'window:devtools': 'cmd+alt+f',
   },
 };

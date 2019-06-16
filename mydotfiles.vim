@@ -142,9 +142,9 @@
   augroup javascript_settings
     autocmd!
     autocmd FileType javascript :setlocal foldmethod=syntax
-    autocmd FileType javascript :setlocal foldlevel=99
+    autocmd FileType javascript :setlocal foldlevelstart=99
     autocmd FileType javascript.jsx :setlocal foldmethod=syntax
-    autocmd FileType javascript.jsx :setlocal foldlevel=99
+    autocmd FileType javascript.jsx :setlocal foldlevelstart=99
   augroup END
 
   " Comment and uncomment out a line in javascript
@@ -384,6 +384,7 @@ augroup END
   nmap <silent> <leader>aj :ALENext<cr>
   nmap <silent> <leader>ak :ALEPrevious<cr>
 
+  autocmd BufEnter * let g:filePathForAle = expand('%:p')
 " }}}
 
 " {{{ buffergator settings 
@@ -494,6 +495,8 @@ augroup END
     Plug 'nvie/vim-flake8', { 'for': ['python'] }
 
     Plug 'idbrii/itchy.vim'
+
+    Plug 'metakirby5/codi.vim', { 'on': 'Codi' }
 
     " Plugins required for Neoplete -- {{{
 
