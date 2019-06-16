@@ -14,6 +14,8 @@
 
   if has("mac")
     execute "source " . g:pathToVimspirationalRepo . "mydotfiles-macOS.vim"
+  elseif has("unix")
+    execute "source " . g:pathToVimspirationalRepo . "mydotfiles-linux.vim"
   elseif has("win32")
     execute "source " . g:pathToVimspirationalRepo . "mydotfiles-windoze.vim"
   endif
@@ -385,6 +387,11 @@ augroup END
   nmap <silent> <leader>ak :ALEPrevious<cr>
 
   autocmd BufEnter * let g:filePathForAle = expand('%:p')
+
+  " Make it so that the cursor doesn't disappear on linux on lines with
+  " linting errors
+  let g:ale_echo_cursor = 0
+
 " }}}
 
 " {{{ buffergator settings 
@@ -409,7 +416,6 @@ augroup END
 
 " Deoplete settings ------- {{{
   let g:deoplete#enable_at_startup = 1
-  let g:python3_host_prog = '/usr/local/bin/python3'
 " }}}
 
 " Ctrl-P settings ------- {{{

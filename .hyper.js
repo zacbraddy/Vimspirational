@@ -11,6 +11,9 @@ module.exports = {
     // default font size in pixels for all tabs
     fontSize: 12,
 
+    // Use this font size for streaming
+    //fontSize: 24,
+
     // font family with optional fallbacks
     fontFamily:
       '"SauceCodePro Nerd Font", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',

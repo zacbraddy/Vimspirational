@@ -1,0 +1,44 @@
+# Mac Settings {{{
+  # Some stuff to make the delete key on keyboards that have them act a little more sane on mac
+  ZSH_DISABLE_COMPFIX=true
+  bindkey "^D" delete-char-or-list
+  bindkey "^H" backward-delete-char
+  bindkey "^[3;5~" delete-char
+  bindkey "^[[3~" delete-char
+  bindkey "^?" backward-delete-char
+# }}}
+
+# Kubernetes settings {{{
+  # Alias so I only have to type k for the kubectl command and shorten other kubernetes tool commands
+  alias k="kubectl "
+  alias kb="kubens "
+  alias kc="kubectx "
+
+  kb dev-quoll
+
+  # Set the kubectl standard editor
+  export KUBE_EDITOR="vim"
+  # The next line updates PATH for the Google Cloud SDK.
+  if [ -f '/Users/zac.braddy/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/zac.braddy/google-cloud-sdk/path.zsh.inc'; fi
+
+  # The next line enables shell command completion for gcloud.
+  if [ -f '/Users/zac.braddy/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/zac.braddy/google-cloud-sdk/completion.zsh.inc'; fi
+# }}}
+
+# Node settings {{{
+  # Setting up global yarn folder in Path
+  export PATH="/usr/local/opt/node@8/bin:$PATH"
+# }}}
+
+alias amazeballs="cowsay -n | lolcat"
+
+# Add flutter to path (although this assumes that flutter is install in my projects folder which it isn't anymore so might need changing
+export PATH="/Users/zac.braddy/Projects/flutter/bin:$PATH"
+
+# Don't use the native ruby that comes with osx like a chump use the one you installed with brew
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# Make it so that ruby gems get installed and used from within my home directory instead of where every else that crazy thing stores them
+export GEM_HOME=$HOME/gems
+export PATH=$HOME/gems/bin:$PATH
+export PATH="/usr/local/opt/node@10/bin:$PATH"

@@ -45,6 +45,10 @@
 
 " }}}
 
+" Deoplete Settings -------------------- {{{
+  let g:python3_host_prog = '/usr/local/bin/python3'
+" }}}
+
 " Vim-Plug Settings -------------------- {{{
 
   let g:vimPlugDir = $HOME . '/.vim/plugged'
