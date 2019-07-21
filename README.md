@@ -19,7 +19,6 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
 1. Install homebrew by executing the following command in hyper `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
 1. Install some requirements for plugins etc using `brew install ack node@8 yarn python3 kubernetes-cli kubectx the_silver_searcher`
-1. For deoplete to work you have to install the neovim module into your python install so run `pip3 install neovim`
 1. Run the following to install vim and macvim linked to update together with hombrew:
 ```
 export PATH=/usr/local/bin:$PATH
@@ -33,6 +32,7 @@ brew link macvim
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
 1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
 1. Install npm packages globally with `npm i flow prettier cowsay lolcatjs grecent -g`
+1. Run this command to install all of the necessary CoC extensions `vim -c 'CocInstall -sync coc-tsserver coc-git coc-json coc-css coc-yaml coc-html|q'`
 
 ## On Linux
 Pretty much the same as macos except change out the ways in which you install things. You still symlink the same etc.
@@ -52,7 +52,7 @@ Pretty much the same as macos except change out the ways in which you install th
 1. Put the symlinked vimrc in the `$VIM` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down.
 1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your vimfiles, dead simple
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
-1. Follow the quick install instructions from the [YouCompleteMe github README](https://github.com/Valloric/YouCompleteMe#windows) you'll need to install Python, CMake and Visual Studio as part of it and then compile the executables using the the install.py with the --js-completer flag. One important distinction from the install README is that in that they compile in the vimfiles/bundle but remember as part of vim-plug we've actually installed the plugin in the vimfiles/plugged folder instead.
+1. Run this command to install all of the necessary CoC extensions `vim -c 'CocInstall -sync coc-tsserver coc-git coc-json coc-css coc-yaml coc-html|q'`
 
 ## Plugins I'm using
 
@@ -74,7 +74,7 @@ ack.vim|https://github.com/mileszs/ack.vim|Ack is a code anaylsis and searching 
 ALE|https://github.com/w0rp/ale|Asynchronous Linting Engine, does what it says on the tin, tries to lint everything as you type. Thing is either I'm not using it right or this thing isn't asynchronous enough because on my work computer this slows things down a fair bit. Still gotta have something in this department because the alternative is annoying as hell so till I find a better one this is it.
 vim-closer|https://github.com/rstacruz/vim-closer|Just a simple little thing to write a closing bracket after I've typed and opening bracket.
 vim-repeat|https://github.com/tpope/vim-repeat|Repeat commands from things like surround and unimpaired with the `.` instead of having to do them again. Should probably look into what other plugins support this if I'm honest because I'm sure there is more from big daddy TPope.
-Deoplete|https://github.com/Shougo/deoplete.nvim|Completion engine that will give you helpful completions for all types of things Note (there are few plugins required for this to work which are folded into the dot files for vim
+CoC|https://github.com/neoclide/coc.nvim|Completion engine that will give you helpful completions for all types of things 
 typescript-vim|https://github.com/leafgarland/typescript-vim|Syntax highlighting and completion for typescript.
 vim-jsx-typescript|https://github.com/peitalin/vim-jsx-typescript|Syntax highlighting and completion for JSX inside typescript
 vim-buffergator|https://github.com/jeetsukumaran/vim-buffergator|Helps with navigating between the many buffers that you inevitably have open when developing, gives a cool navigator and key bindings to go back through your recently opened buffers.
@@ -130,6 +130,9 @@ Codi|https://github.com/metakirby5/codi.vim|Makes vim a REPL for a number of dif
 `kc`|alias|Does `kubectx` so I don't have to type as much
 `kadc`|alias|Kill All Docker Containers because sometimes I have latent containers running that conflict and I don't want to have to close them all manually
 `gs`, `ga`, `gc`, `gp`, `gd`, `gr`|alias|Shortcuts for `git status` `git add .` `git commit` `git push` `git diff` and `git reset` with cowsay and lolcat goodness for the status
+
+## Things I've tried and moved away from
+- YouCompleteMe and Deoplete have both been options I've tried for autocompletion in the past but Coc is bae!
 
 ## Problems I'm sure I can solve but haven't yet
 
