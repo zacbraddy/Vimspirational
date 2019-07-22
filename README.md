@@ -32,7 +32,6 @@ brew link macvim
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
 1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
 1. Install npm packages globally with `npm i flow prettier cowsay lolcatjs grecent -g`
-1. Run this command to install all of the necessary CoC extensions `vim -c 'CocInstall -sync coc-tsserver coc-git coc-json coc-css coc-yaml coc-html|q'`
 
 ## On Linux
 Pretty much the same as macos except change out the ways in which you install things. You still symlink the same etc.
@@ -52,7 +51,6 @@ Pretty much the same as macos except change out the ways in which you install th
 1. Put the symlinked vimrc in the `$VIM` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down.
 1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your vimfiles, dead simple
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
-1. Run this command to install all of the necessary CoC extensions `vim -c 'CocInstall -sync coc-tsserver coc-git coc-json coc-css coc-yaml coc-html|q'`
 
 ## Plugins I'm using
 

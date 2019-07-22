@@ -437,11 +437,11 @@ augroup END
 
     " Use tab for trigger completion with characters ahead and navigate.
     " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-    imap <silent><expr> <TAB>
+    inoremap <silent><expr> <TAB>
           \ pumvisible() ? "\<C-n>" :
           \ <SID>check_back_space() ? "\<TAB>" :
           \ coc#refresh()
-    imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
     function! s:check_back_space() abort
       let col = col('.') - 1
@@ -453,7 +453,7 @@ augroup END
 
     " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
     " Coc only does snippet and additional edit on confirm.
-    imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
     " Use `[c` and `]c` to navigate diagnostics
     nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -537,6 +537,7 @@ augroup END
     nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
     " Resume latest coc list
     " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+    let g:coc_global_extensions=['coc-tsserver', 'coc-git', 'coc-json', 'coc-css', 'coc-yaml', 'coc-html', 'coc-prettier']
       " }}}
 " }}}
 
@@ -598,7 +599,7 @@ augroup END
 
     Plug 'w0rp/ale'
 
-    Plug 'rstacruz/vim-closer'
+    " Plug 'rstacruz/vim-closer'
 
     Plug 'tpope/vim-repeat'
 
