@@ -599,7 +599,7 @@ augroup END
 
     Plug 'w0rp/ale'
 
-    " Plug 'rstacruz/vim-closer'
+    Plug 'jiangmiao/auto-pairs'
 
     Plug 'tpope/vim-repeat'
 
