@@ -67,6 +67,11 @@
   " my windows days
   map <c-z> <Nop> 
 
+  " A fix for the screen not refreshing properly when scrolling in tmux
+  if &term =~ '256color'
+    " disable Background Color Erase (BCE)
+    set t_ut=
+  endif
 " }}}
 
 " Productivity commands ---------------------- {{{
@@ -577,8 +582,6 @@ augroup END
 
     Plug 'airblade/vim-gitgutter'
 
-    Plug 'tpope/vim-fugitive'
-
     Plug 'tpope/vim-unimpaired'
 
     Plug 'pangloss/vim-javascript'
@@ -628,6 +631,8 @@ augroup END
     Plug 'metakirby5/codi.vim', { 'on': 'Codi' }
 
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    Plug 'wellle/targets.vim'
 
     " Colour Schemes {{{
       Plug 'dracula/vim', { 'as': 'dracula' }
