@@ -25,7 +25,7 @@ if [[ $AM_RUNNING_IN == "mac" ]]; then
     kubectl
   )
 else
-  plugins=(git npm)
+  plugins=(git npm kubectl)
 fi
 
 source $ZSH/oh-my-zsh.sh
