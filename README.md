@@ -9,6 +9,49 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 - [Problems I'm sure I can solve but haven't yet](#problems-im-sure-i-can-solve-but-havent-yet)
 - [Problems I've managed to overcome](#problems-ive-managed-to-overcome)
 
+## On Linux
+1. Install Hyper Terminal from [here](https://hyper.is/). Installing off that website at the time of writing this installs canary which is what I prefer. It gives the latest features at the potential cost of stability but I haven't had any problems with stability so... The website will give you an AppImage that you have to make executable and then run.
+1. Using terminal (NOT HYPERTERM) delete `~/.hyper.js` and symlink the hyper dot files from this repo using something like `ln -s ~/Projects/Vimspirational/.hyper.js ~/.hyper.js`
+1. Install OhMyZsh with this script `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+1. Symlink the .zshrc files that are in the Vimspirational repo `ln -s ~/Projects/Vimspirational/.zshrc ~/.zshrc`
+1. Symlink the .zshrc files that are specific for mac that get sourced in `ln -s ~/Projects/Vimspirational/.zshrc`
+1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
+1. Install some requirements for plugins etc using `sudo apt-get install ack-grep nodejs yarn python3 httpie silversearcher-ag`
+1. Install gcloud components
+```
+# Add the Cloud SDK distribution URI as a package source
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+
+# Import the Google Cloud Platform public key
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+
+# Update the package list and install the Cloud SDK
+sudo apt-get update && sudo apt-get install google-cloud-sdk
+```
+1. Install the kubernetes-cli
+```
+sudo apt-get update && sudo apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+```
+1. Hook up your gcloud instances, checkout the commands in th GCP console for this, it's a copy pasta job
+1. Install kubectx and kubens
+```
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+mkdir ~/.oh-my-zsh/completions
+sudo chmod -R 755 ~/.oh-my-zsh/completions
+sudo ln -s /opt/kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx
+sudo ln -s /opt/kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens
+```
+1. Put the `_vimrc` file in the `$HOME` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down. Also change the other 
+1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation) by opening up vim the dot files will automatically download vim-plug and install all the plugins, you'll have a few error messages to hit enter through but after that, close down 
+1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
+1. Install npm packages globally with `npm i flow prettier cowsay lolcatjs grecent -g`
+
 ## Step to setup on MacOS
 1. Install Hyper Terminal from [here](https://hyper.is/). Installing off that website at the time of writing this installs canary which is what I prefer. It gives the latest features at the potential cost of stability but I haven't had any problems with stability so... Do not install via homebrew otherwise it will install stable which at the moment has problems for me.
 1. Current canary has a problem where when you hold down a button it doesn't repeat the keypress so to fix that run this: `defaults write co.zeit.hyper ApplePressAndHoldEnabled -bool false`
@@ -32,9 +75,6 @@ brew link macvim
 1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
 1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
 1. Install npm packages globally with `npm i flow prettier cowsay lolcatjs grecent -g`
-
-## On Linux
-Pretty much the same as macos except change out the ways in which you install things. You still symlink the same etc.
 
 ## Steps to setup on Windows 
 #### NOTE: this is largely deprecated now as it's been ages since I've worked on Windows and I'm unsure if this will still even work with the current dot files but left it here as there shouldn't be too much work needed to revive it
