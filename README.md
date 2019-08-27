@@ -122,7 +122,6 @@ targets|https://github.com/wellle/targets.vim|Awesome extensions to changing thi
 `<leader>p` `<leader>P`|Normal, Visual|Put out of the * register in less keystrokes
 `<leader>gs`|Normal, Visual|Open a scratch buffer
 
-
 ## Custom commands and key remaps in my zshrc
 
 |Command or Key remap|Mode[filetype]|What it does|Why?|
@@ -134,10 +133,8 @@ targets|https://github.com/wellle/targets.vim|Awesome extensions to changing thi
 `gs`, `ga`, `gc`, `gp`, `gd`, `gr`|alias|Shortcuts for `git status` `git add .` `git commit` `git push` `git diff` and `git reset` with cowsay and lolcat goodness for the status
 
 ## Things I've tried and moved away from
-- YouCompleteMe and Deoplete have both been options I've tried for autocompletion in the past but Coc is bae!
 
 ## Problems I'm sure I can solve but haven't yet
-
 
 #### General ideas
 
@@ -146,16 +143,5 @@ targets|https://github.com/wellle/targets.vim|Awesome extensions to changing thi
 
 ## Problems I've managed to overcome
 
-See problems I've managed to overcome archived in [v1.0 of my dotfiles](https://github.com/zacbraddy/Vimspirational/blob/v1.0/README.md#problems-ive-managed-to-overcome)
+See problems I've managed to overcome archived in [v2.0 of my dotfiles](https://github.com/zacbraddy/Vimspirational/blob/v2.0/README.md#problems-ive-managed-to-overcome)
 
-#### Creating a directory that doesn't exist
-
-I had a problem for a while where I was moving all my swap, undo and backup files to a centralised folder so I didn't have them all over my file system this was fine but I had to create the folders by hand and if I didn't them vim crashed on start up. I found [this SO article](https://stackoverflow.com/a/43880028/5188846) which showed me how to make a directory if it didn't exist so I make the `CreateDirectoryIfNotExist` function in my vimrc and then started using it whenever I wanted to make sure a directory existed.
-
-#### Folding not working for javascript in the JSX files
-
-I was finding that if I loaded up a jsx file for the first time then the code folding didn't work. But if I deleted the buffer and then reloaded it then the folding appeared perfectly. I found this was a problem with these plugins not liking being lazy loaded by vim-plug so I had to have them load on startup.
-
-#### Installed a heap of plugins
-
-- I read [this article](https://hackernoon.com/5-vim-plugins-i-cant-live-without-for-javascript-development-f7e98f98e8d5) and start installed the plugins I thought were cool
