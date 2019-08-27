@@ -9,14 +9,17 @@ A repo that documents my journey into trying to be a developer who uses Vim as w
 - [Problems I'm sure I can solve but haven't yet](#problems-im-sure-i-can-solve-but-havent-yet)
 - [Problems I've managed to overcome](#problems-ive-managed-to-overcome)
 
-## On Linux
+## Install
+Note: These install instructions are for linux. There are install instructions for windows and MacOS in their appropriate markdown files but they are out of date now as I'm now using linux solely for development
+
 1. Install Hyper Terminal from [here](https://hyper.is/). Installing off that website at the time of writing this installs canary which is what I prefer. It gives the latest features at the potential cost of stability but I haven't had any problems with stability so... The website will give you an AppImage that you have to make executable and then run.
 1. Using terminal (NOT HYPERTERM) delete `~/.hyper.js` and symlink the hyper dot files from this repo using something like `ln -s ~/Projects/Vimspirational/.hyper.js ~/.hyper.js`
 1. Install OhMyZsh with this script `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 1. Symlink the .zshrc files that are in the Vimspirational repo `ln -s ~/Projects/Vimspirational/.zshrc ~/.zshrc`
-1. Symlink the .zshrc files that are specific for mac that get sourced in `ln -s ~/Projects/Vimspirational/.zshrc`
+1. Symlink the .zshrc files that are specific for linux that get sourced in `ln -s ~/Projects/Vimspirational/.zshrc.linux ~/.zshrc.linux` understand that part of the linux zshrc sets up npm to use a global repo in your home directory so you don't have to sudo install global packages. This means that if you had an npmrc previously it won't overwrite with the correct settings. Checkout the npm global install settings in this file to see what is needed.
 1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
-1. Install some requirements for plugins etc using `sudo apt-get install ack-grep nodejs yarn python3 httpie silversearcher-ag`
+1. Install some requirements for plugins etc using `sudo apt-get install ack-grep nodejs yarn python3 httpie silversearcher-ag tmux vim-gnome`
+1. Symlink .tmux.conf to the one in the repo using the same method as above, for some reason vim goes funny when you open my dot files in anything other than tmux so you'll need to do the rest within tmux.
 1. Install gcloud components
 ```
 # Add the Cloud SDK distribution URI as a package source
@@ -52,46 +55,6 @@ sudo ln -s /opt/kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens
 1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
 1. Install npm packages globally with `npm i flow prettier cowsay lolcatjs grecent -g`
 
-## Step to setup on MacOS
-1. Install Hyper Terminal from [here](https://hyper.is/). Installing off that website at the time of writing this installs canary which is what I prefer. It gives the latest features at the potential cost of stability but I haven't had any problems with stability so... Do not install via homebrew otherwise it will install stable which at the moment has problems for me.
-1. Current canary has a problem where when you hold down a button it doesn't repeat the keypress so to fix that run this: `defaults write co.zeit.hyper ApplePressAndHoldEnabled -bool false`
-1. Using terminal (NOT HYPERTERM) delete `~/.hyper.js` and symlink the hyper dot files from this repo using something like `ln -s ~/Projects/Vimspirational/.hyper.js ~/.hyper.js`
-1. Install OhMyZsh with this script `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-1. Symlink the .zshrc files that are in the Vimspirational repo `ln -s ~/Projects/Vimspirational/.zshrc ~/.zshrc`
-1. Symlink the .zshrc files that are specific for mac that get sourced in `ln -s ~/Projects/Vimspirational/.zshrc.mac`
-1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
-1. Install homebrew by executing the following command in hyper `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`.
-1. Install some requirements for plugins etc using `brew install ack node@8 yarn python3 kubernetes-cli kubectx the_silver_searcher`
-1. Run the following to install vim and macvim linked to update together with hombrew:
-```
-export PATH=/usr/local/bin:$PATH
-brew update
-brew install vim && brew install macvim
-brew link macvim
-```
-1. Create a symlink between `mvim` and the `vim` command so you can just type `vim` to get it started. You can do that with this command `ln -s /usr/local/bin/mvim vim`. You can run this command whereever you want but make sure that it's in your User folder somewhere so it doesn't get blown away on startup. I chose to put it in my `.vim` folder.
-1. Put the `_vimrc` file in the `$HOME` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down. Also change the other 
-1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your `$HOME/.vim` folder, dead simple
-1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
-1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
-1. Install npm packages globally with `npm i flow prettier cowsay lolcatjs grecent -g`
-
-## Steps to setup on Windows 
-#### NOTE: this is largely deprecated now as it's been ages since I've worked on Windows and I'm unsure if this will still even work with the current dot files but left it here as there shouldn't be too much work needed to revive it
-1. Install ConEmu, my favourite flavour is [cmder](http://cmder.net/)
-1. Pull down my ConEmu settings to give you a basic setup. You need to pull down [this xml file](https://github.com/zacbraddy/Vimispirational/blob/master/con_emu_settings.xml) and then import it into ConEmu through the import functionality available from the settings menu which you can pull up in ConEmu using the shortcut `Win+Alt+P`
-1. There are some setting in the ConEMU settings which point to paths on my local machine. Most notably the background image and the path to the vim exectuable for the VIM startup task you'll need to go change them for those to work.
-1. Install clink into ConEmu. Download the zip file from [here](https://mridgers.github.io/clink/) then unzip the files directly into `%cmderinstallfolder%\cmder\vendor\conemu-maximus5\ConEmu\clink`. Clink is used to give you advanced autocomplete within the command line. Nothing really to do with vim it just makes ConEmu more powerful.
-1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
-1. Install ack from the [chocolatey repo](https://chocolatey.org/packages/ack). Note this will automatically install StrawberryPerl, to test this has worked correctly run the comman `perl` in the command line. StrawberryPerl adds things to your path variable to make this possible so if running the `perl` command gives you an inoperable command error then close your command window, open a new one and try again. If that doesn't work maybe try adding the paths StrawberryPerl added to the system path to your private path? Other than that you're on your own.
-1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
-1. Install flow globally with `npm i flow -g`
-1. Install prettier globally `npm i prettier -g`
-1. Get the latest version of [vim with python support](https://bintray.com/micbou/generic/vim#) which you'll need for the YouCompleteMe plugin to work (I'm currently running 8.1).
-1. Put the symlinked vimrc in the `$VIM` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down.
-1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation), you only need to put the `.vim` file in the autoload folder of your vimfiles, dead simple
-1. Open up vim and use the command `:PI` to install all the plugins probably best to restart VIM after that just to be sure
-
 ## Plugins I'm using
 
 |Plugin name|Link|Why?|
@@ -123,6 +86,7 @@ indentPython|https://github.com/vim-scripts/indentpython.vim|I....I mean, come o
 vim-flake8|https://github.com/nvie/vim-flake8|Does syntax checking etc. for python
 itchy|https://github.com/idbrii/itchy.vim|A plugin to help easily make scratch buffers
 Codi|https://github.com/metakirby5/codi.vim|Makes vim a REPL for a number of different languages, quit useful for quick prototyping in node
+targets|https://github.com/wellle/targets.vim|Awesome extensions to changing thing within brackets and apostrophes or tags etc.
 
 ## Custom commands and key remaps in my vimrc
 
