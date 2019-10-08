@@ -30,6 +30,7 @@ alias amazeballs="cowsay -n | lolcatjs"
 
 # NPM global install settings {{{
   mkdir -p $HOME/.npm_packages
+  NPM_PACKAGES=$HOME/.npm_packages
   if [ ! -f ~/.npmrc ]; then
     echo "prefix = $NPM_PACKAGES" > ~/.npmrc
   fi
@@ -42,4 +43,12 @@ alias amazeballs="cowsay -n | lolcatjs"
       
   # Tell Node about these packages
   NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+# }}}
+
+# Shortcut to start openvpn {{{
+  alias startvpn="sudo openvpn --config ~/client.ovpn"
+# }}}
+
+# Make spotify big {{{
+  alias spotify="/snap/bin/spotify --force-device-scale-factor=2"
 # }}}

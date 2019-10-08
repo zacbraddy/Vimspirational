@@ -353,7 +353,7 @@ augroup END
 
 " vim-airline-themes settings -------------------- {{{
 
-  let g:airline_theme='dracula'
+  let g:airline_theme='onedark'
 
 " }}}
 
@@ -635,10 +635,18 @@ augroup END
     Plug 'wellle/targets.vim'
 
     " Colour Schemes {{{
-      Plug 'dracula/vim', { 'as': 'dracula' }
+      Plug 'joshdick/onedark.vim'
+
+      " This one was my favourite but had refresh issues on scroll
+      "Plug 'dracula/vim', { 'as': 'dracula' }
 
       " These are ones I've tried and through were cool but would like to
       " retry once hyper has true color support
+
+      "Plug 'jacoborus/tender.vim'
+
+      "Plug 'tyrannicaltoucan/vim-deep-space'
+
       "Plug 'ajmwagar/vim-deus'
 
       "Plug 'danilo-augusto/vim-afterglow'
@@ -659,4 +667,4 @@ augroup END
   
 " }}}
 
-  color dracula
+  color onedark
