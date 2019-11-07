@@ -6,7 +6,7 @@ module.exports = {
   config: {
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
-    updateChannel: 'canary',
+    updateChannel: 'stable',
 
     // default font size in pixels for all tabs
     fontSize: 12,
@@ -139,7 +139,7 @@ module.exports = {
     modifierKeys: {
       altIsMeta: true,
     },
-    macOptionSelectionMode: 'force',
+    //macOptionSelectionMode: 'force',
   },
 
   // a list of plugins to fetch and install from npm
@@ -158,7 +158,7 @@ module.exports = {
     'hypertheme',
     'hyperborder',
     'hyper-tabs-enhanced',
-    'hyper-spotify',
+    //'hyper-spotify',
     'hyperminimal',
     'hyper-search',
   ],

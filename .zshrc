@@ -57,3 +57,17 @@ fi
   alias gr="git reset | amazeballs"
   alias gb="grecent"
 # }}}
+
+# Tmuxinator settings {{{
+  alias tmx="tmuxinator"
+  kd() {
+    STARTUP_DIR="$1"
+    if [ -z "$STARTUP_DIR" ]; then
+      STARTUP_DIR="$PWD"
+    fi
+    pushd "$STARTUP_DIR"
+    tmuxinator start koodoo-service -n `basename $PWD`
+    popd
+  }
+  export EDITOR="vim"
+# }}}

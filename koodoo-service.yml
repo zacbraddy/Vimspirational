@@ -1,0 +1,14 @@
+# /home/zac/.config/tmuxinator/koodoo-service.yml
+
+name: koodoo-service
+root: .
+session_name: "basename $PWD"
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+        - npm run ci
+  - cmd:
+    layout: main-horizontal

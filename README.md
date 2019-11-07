@@ -18,7 +18,7 @@ Note: These install instructions are for linux. There are install instructions f
 1. Symlink the .zshrc files that are in the Vimspirational repo `ln -s ~/Projects/Vimspirational/.zshrc ~/.zshrc`
 1. Symlink the .zshrc files that are specific for linux that get sourced in `ln -s ~/Projects/Vimspirational/.zshrc.linux ~/.zshrc.linux` understand that part of the linux zshrc sets up npm to use a global repo in your home directory so you don't have to sudo install global packages. This means that if you had an npmrc previously it won't overwrite with the correct settings. Checkout the npm global install settings in this file to see what is needed.
 1. Install the font SauceCodePro NF from [this github repo](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro) I used the regular weight.
-1. Install some requirements for plugins etc using `sudo apt-get install ack-grep nodejs yarn python3 httpie silversearcher-ag tmux vim-gnome`
+1. Install some requirements for plugins etc using `sudo apt-get install ack-grep nodejs yarn python3 httpie ruby silversearcher-ag tmux vim-gnome`
 1. Symlink .tmux.conf to the one in the repo using the same method as above, for some reason vim goes funny when you open my dot files in anything other than tmux so you'll need to do the rest within tmux.
 1. Install gcloud components
 ```
@@ -50,10 +50,11 @@ sudo chmod -R 755 ~/.oh-my-zsh/completions
 sudo ln -s /opt/kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx
 sudo ln -s /opt/kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens
 ```
-1. Put the `_vimrc` file in the `$HOME` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down. Also change the other 
+1. Put the `_vimrc` file in the `$HOME` directory and change the `g:pathToVimRc` so that it points to the `mydotfiles.vim` in the folder where you pulled this repo down. Also change the other Does `grecent` which uses grecent to switch branches for me
 1. Install [vim-plug](https://github.com/junegunn/vim-plug#installation) by opening up vim the dot files will automatically download vim-plug and install all the plugins, you'll have a few error messages to hit enter through but after that, close down 
 1. Add my little git alias scripts to your global git config. `edit-unmerged` opens all unmerged changes in vim, helpful for when you have merge conflicts and you want to open them all to edit them. `add-unmerged` adds all the unmerged files to the staged changes for after you've done the merge. `prune-branches` deletes all local branches that no longer have a remote on the server. `prune-branches-force` does the same thing but deletes the branch even if it has unpushed changes, be careful with that second one!
 1. Install npm packages globally with `npm i flow prettier cowsay lolcatjs grecent -g`
+1. Install tmuxinator with `gem install tmuxinator` and then symlink the koodoo-service project with `ln -S ~/.config/tmuxinator/koodoo-service.yml ~/Projects/Vimspirational/koodoo-service.yml`
 
 ## Plugins I'm using
 
@@ -131,6 +132,8 @@ targets|https://github.com/wellle/targets.vim|Awesome extensions to changing thi
 `kc`|alias|Does `kubectx` so I don't have to type as much
 `kadc`|alias|Kill All Docker Containers because sometimes I have latent containers running that conflict and I don't want to have to close them all manually
 `gs`, `ga`, `gc`, `gp`, `gd`, `gr`|alias|Shortcuts for `git status` `git add .` `git commit` `git push` `git diff` and `git reset` with cowsay and lolcat goodness for the status
+`gb`|plugin|Does `grecent` which uses grecent to switch branches for me
+`kd`|function|Runs the tmuxinator koodoo-service project in the current directory or if you supply it with a path to run it in it will do that so you can quickly open up service tmuxinator projects
 
 ## Things I've tried and moved away from
 
