@@ -35,6 +35,8 @@ else
   source $HOME/.zshrc.linux
 fi
 
+source $HOME/.zshrc.tokens
+
 # Start zac changes
 # Docker settings {{{
   # kill-all-docker-containers
@@ -71,3 +73,13 @@ fi
   }
   export EDITOR="vim"
 # }}}
+
+alias gnome-terminal="gnome-terminal --fullscreen"
+
+alias tla="GTK_THEME=Adwaita:light ~/TLA/toolbox/toolbox"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias oni2="${HOME}/Onivim2-x86_64.AppImage --force-device-scale-factor=2"

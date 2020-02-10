@@ -39,7 +39,7 @@
   
   " Set encoding and set the font to SauceCodePro to use vimdevicons
   set encoding=utf8
-  set guifont=SauceCodePro\ NF:h11
+  set guifont=Jetbrains\ Mono
 
   " Finally I work somewhere that uses sensible defaults so I can set the tab
   " settings and worry changing this to silly 4 spaces later with me leader
@@ -72,6 +72,12 @@
     " disable Background Color Erase (BCE)
     set t_ut=
   endif
+
+  " make it so that the current directory is always set to the file I
+  " currently have open
+  " could use set autochdir but sometimes doesn't play nice with plugins so
+  " this is a softer touch approach
+  autocmd BufEnter * lcd %:p:h
 " }}}
 
 " Productivity commands ---------------------- {{{
@@ -79,19 +85,9 @@
   inoremap <c-u> <esc>viw~<esc>ea
   nnoremap <c-u> viw~<esc>
 
-  " Surround word with quotes
-  nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-  nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
-
   " Exit insert/visual mode easier
   inoremap jk <esc>
   vnoremap jk <esc>
-
-  " Cool parentheses operator pending mappings
-  onoremap in( :<c-u>normal! f(vi(<cr>
-  onoremap il( :<c-u>normal! F)vi(<cr>
-  onoremap an( :<c-u>normal! f(va(<cr>
-  onoremap al( :<c-u>normal! F(va(<cr>
 
   " [E]dit my [V]imrc
   execute "nnoremap <leader>ev :vsplit " . g:pathToVimRc . "<cr>"
@@ -119,23 +115,36 @@
   " Change pwd to current open buffer path
   nnoremap <leader>cd : cd %:p:h<CR>:pwd<CR>
 
-  " shortcut for find and replace all instances of word under cursor
-  nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-
   " Replace line with something else
   nnoremap <leader>rr Pj"_dd
   nnoremap <leader>rs ddko<esc>"*p
 
   " * register helpers
-  vmap <Leader>y "*y
-  vmap <Leader>d "*d
-  nmap <Leader>y "*y
-  nmap <Leader>d "*d
-  nmap <Leader>p "*p
-  nmap <Leader>P "*P
-  vmap <Leader>p "*p
-  vmap <Leader>P "*P
-" }}}
+  nnoremap <Leader>y "+y
+  nnoremap <Leader>c "+c
+  nnoremap <Leader>d "+d
+  nnoremap <Leader>p "+p
+  nnoremap <Leader>P "+P
+
+  " quicksave
+  nnoremap <Leader>f :w<cr>
+  nnoremap <Leader>F :wa<cr>
+
+  " Switch between buffers
+  nnoremap gp :bn<cr> 
+  nnoremap gb :bp<cr> 
+
+  nnoremap <Leader>l :ll<cr>
+  nnoremap <Leader>ln :ll<cr>
+  nnoremap <Leader>lp :ll<cr>
+
+  " Koodoo specific timesavers
+  " Use these for moving variables from dotenv format to envalid js format
+  nmap <Leader>deb 0f=s: envalid.jklys${ysa{(jklx%lxh%ladefault: jkF.abooljkA,jkj
+  nmap <Leader>des 0f=s: envalid.jklys$'ysa'{ysa{(jklx%lxh%ladefault: jkF.astrjkA,jkj
+  nmap <Leader>den 0f=s: envalid.jklys${ysa{(jklx%lxh%ladefault: jkF.anumjkA,jkj
+  
+"}}}
 
 " Config Editing settings -------------------- {{{
   augroup filetype_zsh
@@ -270,9 +279,10 @@ augroup END
 
   " enable line numbers
   let NERDTreeShowLineNumbers=1
+
   " make sure relative line numbers are used
   autocmd FileType nerdtree setlocal relativenumber
-
+  
   nnoremap <F2> :NERDTreeToggle<cr>
   nnoremap <leader>nt :NERDTreeToggle<cr>
 " }}}
@@ -359,15 +369,21 @@ augroup END
 
 " ALE Settings --------------------- {{{
 
+  let g:ale_linter_aliases = {'svelte': ['css', 'javascript']}
+
   " Set which fixers to use with Ale
   let g:ale_fixers = {}
   let g:ale_fixers['javascript'] = ['prettier', 'eslint']
   let g:ale_fixers['javascript.jsx'] = ['prettier', 'eslint']
+  let g:ale_fixers['typescript'] = ['prettier', 'tslint']
+  let g:ale_fixers['svelte'] = ['prettier', 'eslint']
 
   " Set which linters to use with Ale
   let g:ale_linters = {}
   let g:ale_linters['javascript'] = ['flow', 'eslint']
   let g:ale_linters['javascript.jsx'] = ['flow', 'eslint']
+  let g:ale_linters['typescript'] = ['tslint']
+  let g:ale_linters = {'svelte': ['stylelint', 'eslint']}
 
   " Run fixers on save
   let g:ale_fix_on_save = 1
@@ -488,8 +504,8 @@ augroup END
     nmap <leader>rn <Plug>(coc-rename)
 
     " Remap for format selected region
-    xmap <leader>f  <Plug>(coc-format-selected)
-    nmap <leader>f  <Plug>(coc-format-selected)
+    "xmap <leader>f  <Plug>(coc-format-selected)
+    "nmap <leader>f  <Plug>(coc-format-selected)
 
     augroup mygroup
       autocmd!
@@ -509,7 +525,7 @@ augroup END
     nmap <leader>qf  <Plug>(coc-fix-current)
 
     " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-    nmap <silent> <TAB> <Plug>(coc-range-select)
+    " nmap <silent> <TAB> <Plug>(coc-range-select)
     xmap <silent> <TAB> <Plug>(coc-range-select)
     xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
@@ -542,8 +558,8 @@ augroup END
     nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
     " Resume latest coc list
     " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-    let g:coc_global_extensions=['coc-tsserver', 'coc-git', 'coc-json', 'coc-css', 'coc-yaml', 'coc-html', 'coc-prettier']
-      " }}}
+    let g:coc_global_extensions=['coc-tsserver', 'coc-git', 'coc-json', 'coc-css', 'coc-yaml', 'coc-html', 'coc-prettier', 'coc-svelte']
+  " }}}
 " }}}
 
 " Ctrl-P settings ------- {{{
@@ -569,6 +585,10 @@ augroup END
   
 " }}}
 
+" vim-table-mode settings {{{
+  let g:table_mode_corner='|'
+" }}}
+
 " Plugins ---------------------------- {{{
 
   call CreateDirectoryIfNotExist(g:vimPlugDir)
@@ -577,7 +597,7 @@ augroup END
     Plug 'tpope/vim-sensible'
 
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    
+
     Plug 'ryanoasis/vim-devicons'
 
     Plug 'airblade/vim-gitgutter'
@@ -610,13 +630,9 @@ augroup END
 
     Plug 'peitalin/vim-jsx-typescript', { 'for': ['typescript'] }
 
-    Plug 'jeetsukumaran/vim-buffergator'
-
     Plug 'Xuyuanp/nerdtree-git-plugin'
 
     Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart'] }
-
-    Plug 'idanarye/vim-merginal'
 
     Plug 'ctrlpvim/ctrlp.vim'
 
@@ -626,38 +642,25 @@ augroup END
 
     Plug 'nvie/vim-flake8', { 'for': ['python'] }
 
-    Plug 'idbrii/itchy.vim'
-
-    Plug 'metakirby5/codi.vim', { 'on': 'Codi' }
-
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     Plug 'wellle/targets.vim'
 
-    " Colour Schemes {{{
-      Plug 'joshdick/onedark.vim'
+    Plug 'airblade/vim-rooter'
 
-      " This one was my favourite but had refresh issues on scroll
-      "Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'joshdick/onedark.vim'
 
-      " These are ones I've tried and through were cool but would like to
-      " retry once hyper has true color support
+    Plug 'getgauge-contrib/neovim-gauge'
 
-      "Plug 'jacoborus/tender.vim'
+    Plug 'dhruvasagar/vim-table-mode'
 
-      "Plug 'tyrannicaltoucan/vim-deep-space'
+    Plug 'evanleck/vim-svelte'
 
-      "Plug 'ajmwagar/vim-deus'
-
-      "Plug 'danilo-augusto/vim-afterglow'
-
-      "Plug 'flrnprz/candid.vim'
-      
-      "Plug 'dunstontc/vim-vscode-theme'
-    "}}}
+    Plug 'tpope/vim-obsession'
   call plug#end()
 " }}}
 
+  color onedark
 " Devicons Settings ------------------ {{{
 
   " Gotcha!!! This only works if you put it after the plugins
@@ -666,5 +669,3 @@ augroup END
   endif
   
 " }}}
-
-  color onedark

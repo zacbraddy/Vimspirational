@@ -96,3 +96,6 @@ sudo apt install yarn
 # Fixing bluetooth headphones with ubuntu
 
 My bluetooth headphones were doing funky things when the machine went into suspended mode and also kept choosing poor quality bluetooth bands. [This blog post sorted me out](https://medium.com/@overcode/fixing-bluetooth-in-ubuntu-pop-os-18-04-d4b8dbf7ddd6)
+
+# Making that caps lock another backspace and dual shift keys my caps lock
+Both of these can be done using the gnome-tweak-tools package which has been installed during the setup instructions in the readme
